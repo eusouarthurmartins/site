@@ -1150,7 +1150,21 @@
 
         // Botões das plataformas (corretora)
         function handlePlataformaClick(plataforma) {
-            window.open('https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack=', '_blank');
+            let linkDaCorretora = '';
+
+            // Verifica qual plataforma foi clicada e define o link correspondente
+            if (plataforma === 'Forex') {
+                linkDaCorretora = 'https://trade.astronbroker.com/register?aff=752922&aff_model=revenue&afftrack=';
+            } else if (plataforma === 'Opções') {
+                linkDaCorretora = 'https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack=';
+            }
+
+            // Abre a janela com o link correto
+            if (linkDaCorretora) {
+                window.open(linkDaCorretora, '_blank');
+            }
+
+            // Animação do botão (permanece a mesma)
             event.target.style.transform = 'scale(0.98)';
             setTimeout(() => {
                 event.target.style.transform = '';
