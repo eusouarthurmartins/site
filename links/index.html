@@ -551,7 +551,7 @@
             <!-- Grupo do lado esquerdo (Logo + Aviso) -->
             <div class="nav-left-group">
                 <a href="#home" class="nav-logo">Arthur <span>Martins</span></a>
-                <span class="nav-warning-pulse"><br></span>
+                <span class="nav-warning-pulse"></span>
             </div>
             <ul class="nav-menu" id="navMenu">
                 <!-- Menu vazio, mas a estrutura é mantida -->
@@ -568,11 +568,11 @@
                     <!-- USANDO <picture> PARA DIFERENTES IMAGENS (ART DIRECTION) -->
                     <picture>
                         <!-- PARA DESKTOP (TELAS GRANDES, 769px ou mais) -->
-                        <source media="(min-width: 769px)" srcset="./banne-desktop.jpg">
+                        <source media="(min-width: 769px)" srcset="./banner-desktop.jpg">
                         <!-- PARA CELULAR (TELAS PEQUENAS, até 768px) -->
-                        <source srcset="./banne-mobile.jpg">
+                        <source srcset="./banner-mobile.jpg">
                         <!-- IMAGEM PADRÃO (FALLBACK) - Usada se nenhuma media query for correspondida -->
-                        <img src="./banne-desktop.jpg" alt="Arthur Martins" class="hero-image">
+                        <img src="./banner-desktop.jpg" alt="Arthur Martins - Estrategista Digital e Investidor" class="hero-image">
                     </picture>
                     <!-- TRANSIÇÃO DISCRETA COM GRADIENTE -->
                     <div class="hero-shadow-bottom"></div>
@@ -598,32 +598,36 @@
                 <a href="https://wa.me/55119XXXXXXXX?text=Ol%C3%A1%2C+Arthur%21+Vim+pelo+site+e+gostaria+de+mais+informa%C3%A7%C3%B5es." 
                    target="_blank" 
                    class="botao-imagem-link"
-                   title="Fale comigo no WhatsApp">
-                    <img src="./botao-fale-comigo.jpg" alt="Botão Fale comigo" class="botao-imagem">
+                   title="Fale comigo no WhatsApp"
+                   aria-label="Fale comigo no WhatsApp">
+                    <img src="./botao-fale-comigo.jpg" alt="Botão Fale comigo no WhatsApp" class="botao-imagem" loading="lazy">
                 </a>
 
                 <!-- Botão 2: Forex -->
                 <a href="https://trade.astronbroker.com/register?aff=752922&aff_model=revenue&afftrack=" 
                    target="_blank" 
                    class="botao-imagem-link"
-                   title="Cadastrar na corretora de Forex">
-                    <img src="./botao-forex.jpg" alt="Botão Forex" class="botao-imagem">
+                   title="Cadastrar na corretora de Forex"
+                   aria-label="Cadastrar na corretora de Forex">
+                    <img src="./botao-forex.jpg" alt="Botão para se cadastrar na corretora de Forex" class="botao-imagem" loading="lazy">
                 </a>
 
                 <!-- Botão 3: Opções -->
                 <a href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack=" 
                    target="_blank" 
                    class="botao-imagem-link"
-                   title="Cadastrar na corretora de Opções">
-                    <img src="./botao-opcoes.jpg" alt="Botão Opções" class="botao-imagem">
+                   title="Cadastrar na corretora de Opções"
+                   aria-label="Cadastrar na corretora de Opções">
+                    <img src="./botao-opcoes.jpg" alt="Botão para se cadastrar na corretora de Opções" class="botao-imagem" loading="lazy">
                 </a>
 
                 <!-- Botão 4: Conheça Meu Trabalho -->
                 <a href="https://euarthurmartins.com/" 
                    target="_blank" 
                    class="botao-imagem-link"
-                   title="Conheça meu trabalho">
-                    <img src="./botao-conheca-meu-trabalho.jpg" alt="Botão Conheça meu trabalho" class="botao-imagem">
+                   title="Conheça meu trabalho"
+                   aria-label="Conheça meu trabalho">
+                    <img src="./botao-conheca-meu-trabalho.jpg" alt="Botão para conhecer o trabalho de Arthur Martins" class="botao-imagem" loading="lazy">
                 </a>
             </div>
         </div>
