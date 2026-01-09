@@ -258,12 +258,12 @@
 
         /* ======== HERO SECTION COM BANNER ======== */
         .hero {
-            min-height: 100vh;
+            height: auto;
             background-color: #000000; /* Fundo preto sólido */
             display: flex;
             flex-direction: column;
             position: relative;
-            padding-top: 80px;
+            padding-top: 80px; /* RESTAURADO: Volta ao tamanho original */
         }
 
         .hero-image-container {
@@ -366,163 +366,49 @@
             pointer-events: none;
             box-shadow: 0 0 10px rgba(184, 148, 31, 0.4);
         }
-
-        .hero-text-container {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 0 80px 0;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-text {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-nome {
-            font-family: var(--fonte-titulos);
-            font-size: 72px;
-            font-weight: 900;
-            color: var(--branco-suave);
-            margin-bottom: 30px;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            animation: fadeInScale 1.2s ease-out;
-        }
-
-        .hero-nome span {
-            color: var(--dourado);
-            display: inline-block;
-        }
-
-        .hero-descricao {
-            font-size: 22px;
-            color: var(--cinza-claro);
-            line-height: 1.7;
-            margin-bottom: 50px;
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        .hero-destaque {
-            color: var(--dourado);
-            font-weight: 600;
-        }
-
-        .hero-cta {
-            animation: fadeInUp 1.8s ease-out;
-        }
-
+        
         /* ======== SEÇÃO PLATAFORMAS DE INVESTIMENTO ======== */
         .plataformas {
-            background: var(--preto-primario);
+            background: #000000; /* Alterado para preto puro */
             border-top: 1px solid var(--cinza-escuro);
+            padding-top: 60px; /* Mantém o espaçamento superior reduzido */
+            padding-bottom: 120px; /* Mantém o espaçamento inferior original */
         }
 
-        .plataformas-grid {
+        /* ======== NOVO ESTILO PARA BOTÕES DE IMAGEM ======== */
+        .botoes-imagem-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: 1fr 1fr; /* 2 colunas no desktop */
+            gap: 25px; /* Espaçamento entre os botões */
             margin-top: 60px;
+            width: 100%;
         }
 
-        .plataforma-card {
-            background: var(--preto-secundario);
-            border: 1px solid var(--cinza-escuro);
-            border-radius: 8px;
-            padding: 50px 40px;
-            text-align: center;
-            transition: var(--transicao-suave);
+        .botao-imagem-link {
+            display: block; /* Faz o link preencher o espaço da célula do grid */
             position: relative;
             overflow: hidden;
+            border-radius: 8px; /* Borda arredondada */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .plataforma-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--dourado), var(--dourado-escuro));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+        /* EFEITO DE HOVER CORRIGIDO: Diminui o botão em vez de aumentar */
+        .botao-imagem-link:hover {
+            transform: scale(0.97); /* Diminui levemente o botão */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5); /* Sombra mais "para dentro" */
         }
 
-        .plataforma-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--sombra-suave);
-            border-color: var(--cinza-medio);
+        .botao-imagem {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Faz a imagem cobrir o espaço sem distorcer */
+            display: block;
+            transition: transform 0.4s ease;
         }
 
-        .plataforma-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .plataforma-logo {
-            width: 100px;
-            height: 100px;
-            background: var(--preto-primario);
-            border-radius: 8px;
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 42px;
-            color: var(--dourado);
-            border: 1px solid var(--cinza-escuro);
-        }
-
-        .plataforma-nome {
-            font-family: var(--fonte-titulos);
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--branco-suave);
-            margin-bottom: 15px;
-        }
-
-        .plataforma-descricao {
-            color: var(--cinza-claro);
-            margin-bottom: 35px;
-            line-height: 1.7;
-            font-size: 16px;
-        }
+        /* O efeito de zoom na imagem foi removido para evitar o corte */
         
-        /* ======== SEÇÃO AUTORIDADE ======== */
-        .autoridade {
-            background: var(--preto-secundario);
-            border-top: 1px solid var(--cinza-escuro);
-        }
-
-        .autoridade-content {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .autoridade-content .titulo-secao {
-            margin-bottom: 30px; /* Espaçamento ajustado após remoção da imagem */
-        }
-
-        .autoridade-frase {
-            font-size: 32px;
-            font-weight: 600;
-            color: var(--branco-suave);
-            line-height: 1.5;
-            margin-bottom: 40px;
-            font-style: italic;
-        }
-
-        .autoridade-frase span {
-            color: var(--dourado);
-            font-weight: 700;
-        }
-
         /* ======== FOOTER ======== */
         footer {
             background: var(--preto-fundo);
@@ -606,50 +492,38 @@
                 left: 0;
             }
 
-            .hero-nome {
-                font-size: 48px;
-            }
-
-            .hero-descricao {
-                font-size: 18px;
-            }
-
-            .hero-text-container {
-                padding: 40px 0 60px 0;
-            }
-
             .titulo-secao {
                 font-size: 36px;
-            }
-
-            .autoridade-frase {
-                font-size: 24px;
             }
 
             .section-padding {
                 padding: 80px 0;
             }
 
+            /* AJUSTE PARA SUBIR A SEÇÃO PLATAFORMAS NO MOBILE */
+            .plataformas {
+                padding-top: 40px; /* Espaçamento ainda menor no mobile */
+            }
+
             /* SOMBRAS MENORES EM MOBILE */
             .hero-shadow-left,
             .hero-shadow-right {
-                width: 100px;
+                width: 80px; /* Ajustado para a nova altura do banner */
             }
 
-            .plataformas-grid {
-                grid-template-columns: 1fr;
+            /* RESPONSIVIDADE PARA O GRID DE BOTÕES */
+            .botoes-imagem-grid {
+                grid-template-columns: 1fr; /* 1 coluna no mobile */
+                gap: 20px;
+            }
+
+            /* ALTURA DO BANNER MENOR NO MOBILE PARA CABER NA TELA */
+            .hero-image-container {
+                height: 450px; /* REDUZIDO: De 550px para 450px */
             }
         }
 
         @media (max-width: 480px) {
-            .hero-nome {
-                font-size: 36px;
-            }
-
-            .hero-descricao {
-                font-size: 16px;
-            }
-
             .titulo-secao {
                 font-size: 30px;
             }
@@ -658,17 +532,14 @@
                 padding: 60px 0;
             }
 
+            /* ALTURA DO BANNER AINDA MENOR EM TELAS PEQUENAS */
             .hero-image-container {
-                height: 450px; /* Altura um pouco maior para telas muito pequenas */
+                height: 350px; /* REDUZIDO: De 450px para 350px */
             }
 
             .hero-shadow-left,
             .hero-shadow-right {
-                width: 50px;
-            }
-
-            .plataforma-card {
-                padding: 40px 25px;
+                width: 40px; /* Ajustado para a nova altura do banner */
             }
         }
     </style>
@@ -688,7 +559,7 @@
         </div>
     </nav>
 
-    <!-- ======== HERO SECTION COM BANNER (SOLUÇÃO 2) ======== -->
+    <!-- ======== HERO SECTION COM BANNER ======== -->
     <section class="hero" id="home">
         <!-- IMAGEM BANNER NO TOPO COM EFEITOS DE SOMBRA -->
         <div class="hero-image-container">
@@ -713,74 +584,46 @@
                 <div class="hero-shadow-right"></div>
             </div>
         </div>
-        
-        <!-- TEXTO CENTRALIZADO ABAIXO -->
-        <div class="hero-text-container">
-            <div class="hero-text">
-                <h1 class="hero-nome">Arthur <span>Martins</span></h1>
-                <p class="hero-descricao">
-                    Olá, sou Arthur Martins. <span class="hero-destaque">Estrategista Digital</span>, 
-                    <span class="hero-destaque">Especialista</span> e <span class="hero-destaque">Investidor</span>. 
-                    Abaixo, você encontrará alguns links que podem te ajudar a conhecer melhor meu trabalho, minhas ferramentas e conteúdos desenvolvidos para quem busca evolução, clareza e consistência.</p>
-                <!-- BOTÃO COM O NOVO TEXTO -->
-                <div class="hero-cta">
-                    <a href="#plataformas" class="btn-premium">Clique aqui</a>
-                </div>
-            </div>
-        </div>
+        <!-- SEÇÃO DE TEXTO E BOTÃO REMOVIDA AQUI -->
     </section>
 
     <!-- ======== SEÇÃO PLATAFORMAS DE INVESTIMENTO ======== -->
     <section id="plataformas" class="plataformas section-padding fade-in">
         <div class="container">
             <h2 class="titulo-secao">Plataformas de Investimento</h2>
-            <div class="plataformas-grid">
-                <div class="plataforma-card">
-                    <div class="plataforma-logo">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="plataforma-nome">Forex</h3>
-                    <p class="plataforma-descricao">
-                        O maior mercado financeiro do mundo. Opere com as principais moedas globais 
-                        com spreads competitivos e execução rápida.
-                    </p>
-                    <!-- SUBSTITUA O href PELO SEU LINK DE AFILIADO -->
-                    <a href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack=" target="_blank" class="btn-premium">
-                        Cadastrar na corretora
-                    </a>
-                </div>
-                
-                <div class="plataforma-card">
-                    <div class="plataforma-logo">
-                        <i class="fas fa-coins"></i>
-                    </div>
-                    <h3 class="plataforma-nome">Opções</h3>
-                    <p class="plataforma-descricao">
-                        Invista em opções com alta rentabilidade. Para quem busca uma forma mais simples, sem muitas análises, na melhor plataforma Quadcode do momento.
-                    </p>
-                    <!-- SUBSTITUA O href PELO SEU LINK DE AFILIADO -->
-                    <a href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack=" target="_blank" class="btn-premium">
-                        Cadastrar na corretora
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+            
+            <!-- NOVO GRID DE BOTÕES COM IMAGEM -->
+            <div class="botoes-imagem-grid">
+                <!-- Botão 1: Fale Comigo -->
+                <a href="https://wa.me/55119XXXXXXXX?text=Ol%C3%A1%2C+Arthur%21+Vim+pelo+site+e+gostaria+de+mais+informa%C3%A7%C3%B5es." 
+                   target="_blank" 
+                   class="botao-imagem-link"
+                   title="Fale comigo no WhatsApp">
+                    <img src="./botao-fale-comigo.jpg" alt="Botão Fale comigo" class="botao-imagem">
+                </a>
 
-    <!-- ======== SEÇÃO AUTORIDADE / MENTORIA ======== -->
-    <section id="autoridade" class="autoridade section-padding fade-in">
-        <div class="container">
-            <div class="autoridade-content">
-                <!-- A FOTO FOI REMOVIDA DAQUI -->
-                
-                <h2 class="titulo-secao">Ainda com dúvidas?</h2>
-                <p class="autoridade-frase">
-                    "Conheça mais do meu <span>trabalho</span>, e tire suas próprias <span>conclusões</span>."
-                </p>
-                
-                <!-- BOTÃO COM NOVO TEXTO E LINK -->
-                <a href="https://euarthurmartins.com/" target="_blank" class="btn-premium">
-                    Conheça meu trabalho
+                <!-- Botão 2: Forex -->
+                <a href="https://trade.astronbroker.com/register?aff=752922&aff_model=revenue&afftrack=" 
+                   target="_blank" 
+                   class="botao-imagem-link"
+                   title="Cadastrar na corretora de Forex">
+                    <img src="./botao-forex.jpg" alt="Botão Forex" class="botao-imagem">
+                </a>
+
+                <!-- Botão 3: Opções -->
+                <a href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack=" 
+                   target="_blank" 
+                   class="botao-imagem-link"
+                   title="Cadastrar na corretora de Opções">
+                    <img src="./botao-opcoes.jpg" alt="Botão Opções" class="botao-imagem">
+                </a>
+
+                <!-- Botão 4: Conheça Meu Trabalho -->
+                <a href="https://euarthurmartins.com/" 
+                   target="_blank" 
+                   class="botao-imagem-link"
+                   title="Conheça meu trabalho">
+                    <img src="./botao-conheca-meu-trabalho.jpg" alt="Botão Conheça meu trabalho" class="botao-imagem">
                 </a>
             </div>
         </div>
