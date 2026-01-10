@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur Martins - Estrategista Digital e Investidor</title>
+    
+    <!-- ======== FAVICON ======== -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" href="./favicon.png">
+    
+    
+<!-- ======== OPEN GRAPH - IMAGEM PARA WHATSAPP/REDES SOCIAIS ======== -->
+<meta property="og:title" content="Arthur Martins - Estrategista Digital e Investidor">
+<meta property="og:description" content="Ensino pessoas a ganharem dinheiro no digital de forma estratégica, profissional e sustentável.">
+<meta property="og:image" content="https://euarthurmartins.com/og-image.jpg?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://euarthurmartins.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arthur Martins">
+<meta property="og:locale" content="pt_BR">
+
+    
+    <!-- ======== TWITTER CARD ======== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Arthur Martins - Estrategista Digital e Investidor">
+<meta name="twitter:description" content="Ensino pessoas a ganharem dinheiro no digital de forma estratégica, profissional e sustentável.">
+<meta name="twitter:image" content="https://euarthurmartins.com/og-image.jpg?v=2"> <!-- <--- MUDA AQUI TAMBÉM -->
+    
+    <!-- Google Fonts - Tipografia Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ======== RESET E CONFIGURAÇÕES GERAIS ======== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Paleta de cores profissional escura */
+            --preto-fundo: #0d0d0d;
+            --preto-primario: #1a1a1a;
+            --preto-secundario: #262626;
+            --cinza-escuro: #404040;
+            --cinza-medio: #525252;
+            --cinza-claro: #a3a3a3;
+            --branco-suave: #f5f5f5;
+            --dourado: #d4af37;
+            --dourado-escuro: #b8941f;
+            --azul-profundo: #1e293b;
+            
+            /* Tipografia */
+            --fonte-titulos: 'Playfair Display', serif;
+            --fonte-corpo: 'Inter', sans-serif;
+            
+            /* Sombras e efeitos */
+            --sombra-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            --sombra-suave: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            --transicao-suave: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--fonte-corpo);
+            background-color: var(--preto-fundo);
+            color: var(--branco-suave);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ======== MENU DE NAVEGAÇÃO ======== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--cinza-escuro);
+            transition: var(--transicao-suave);
+        }
+
+        .navbar.scrolled {
+            padding: 15px 0;
+            background: rgba(13, 13, 13, 0.98);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-left-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; /* Permite quebra de linha se necessário */
+        }
+
+        .nav-logo {
+            font-family: var(--fonte-titulos);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--branco-suave);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo span {
+            color: var(--dourado);
+        }
+
+        /* ======== ESTILO DO AVISO PULSANTE ======== */
+        .nav-warning-pulse {
+            font-family: var(--fonte-titulos);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dourado);
+            margin-left: 20px;
+            white-space: nowrap;
+            animation: pulse-text 2s infinite;
+        }
+
+        @keyframes pulse-text {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--cinza-claro);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: var(--transicao-suave);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--branco-suave);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--dourado);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* ======== CLASSES UTILITÁRIAS ======== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 120px 0;
+        }
+
+        .btn-premium {
+            display: inline-block;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--dourado), var(--dourado-escuro));
+            color: var(--preto-fundo);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 0.8px;
+            border-radius: 2px;
+            transition: var(--transicao-suave);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+            background: linear-gradient(135deg, var(--dourado-escuro), var(--dourado));
+        }
+
+        .btn-premium:active {
+            transform: translateY(0);
+        }
+
+        .titulo-secao {
+            font-family: var(--fonte-titulos);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--branco-suave);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .titulo-secao::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--dourado);
+        }
+
+        .texto-descritivo {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--cinza-claro);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        /* ======== HERO SECTION COM BANNER ======== */
+        .hero {
+            height: auto;
+            background-color: #000000; /* Fundo preto sólido */
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding-top: 80px; /* RESTAURADO: Volta ao tamanho original */
+        }
+
+        .hero-image-container {
+            width: 100%;
+            /* Usando altura fixa para mobile e aspect-ratio para desktop */
+            height: 550px; /* Altura fixa para mobile */
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (min-width: 769px) {
+            .hero-image-container {
+                aspect-ratio: 1920 / 550; /* Proporção para desktop */
+                height: auto; /* Sobrescreve a altura fixa */
+            }
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center; /* Padrão, será sobrescrito pelo <picture> */
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image-wrapper:hover .hero-image {
+            transform: scale(1.05);
+        }
+
+        /* SOMBRA ESQUERDA - EFEITO DE TRANSIÇÃO */
+        .hero-shadow-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                rgba(13, 13, 13, 0.8) 0%, 
+                rgba(13, 13, 13, 0.4) 50%, 
+                transparent 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* SOMBRA DIREITA - EFEITO DE TRANSIÇÃO */
+        .hero-shadow-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100%;
+            background: linear-gradient(-90deg, 
+                rgba(13, 13, 13, 0.8) 0%, 
+                rgba(13, 13, 13, 0.4) 50%, 
+                transparent 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* TRANSIÇÃO DISCRETA COM GRADIENTE - VERSÃO MELHORADA */
+        .hero-shadow-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 250px; /* Aumentei a altura para uma transição mais suave */
+            background: linear-gradient(to top, 
+                rgba(13, 13, 13, 0.9) 0%, 
+                rgba(13, 13, 13, 0.7) 30%,
+                rgba(13, 13, 13, 0.4) 60%,
+                rgba(13, 13, 13, 0.2) 80%,
+                transparent 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* ======== LINHA DOURADA ENVELHECIDA ======== */
+        .hero-gold-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--dourado-escuro) 15%, 
+                var(--dourado-escuro) 85%, 
+                transparent);
+            z-index: 3;
+            pointer-events: none;
+            box-shadow: 0 0 10px rgba(184, 148, 31, 0.4);
+        }
+        
+        /* ======== SEÇÃO PLATAFORMAS DE INVESTIMENTO ======== */
+        .plataformas {
+            background: #000000; /* Alterado para preto puro */
+            border-top: 1px solid var(--cinza-escuro);
+            padding-top: 60px; /* Mantém o espaçamento superior reduzido */
+            padding-bottom: 120px; /* Mantém o espaçamento inferior original */
+        }
+
+        /* ======== NOVO ESTILO PARA BOTÕES DE IMAGEM ======== */
+        .botoes-imagem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 colunas no desktop */
+            gap: 25px; /* Espaçamento entre os botões */
+            margin-top: 60px;
+            width: 100%;
+        }
+
+        .botao-imagem-link {
+            display: block; /* Faz o link preencher o espaço da célula do grid */
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px; /* Borda arredondada */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* EFEITO DE HOVER CORRIGIDO: Diminui o botão em vez de aumentar */
+        .botao-imagem-link:hover {
+            transform: scale(0.97); /* Diminui levemente o botão */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5); /* Sombra mais "para dentro" */
+        }
+
+        .botao-imagem {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Faz a imagem cobrir o espaço sem distorcer */
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        /* O efeito de zoom na imagem foi removido para evitar o corte */
+        
+        /* ======== FOOTER ======== */
+        footer {
+            background: var(--preto-fundo);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--cinza-escuro);
+        }
+
+        .footer-text {
+            color: var(--cinza-medio);
+            font-size: 14px;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+
+        .footer-text span {
+            color: var(--dourado);
+            font-weight: 600;
+        }
+
+        /* ======== ANIMAÇÕES ======== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ======== RESPONSIVIDADE ======== */
+        @media (max-width: 768px) {
+            .nav-warning-pulse {
+                display: none; /* Esconde o aviso em telas pequenas */
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: var(--preto-primario);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: var(--sombra-suave);
+                padding: 20px 0;
+                gap: 20px;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .titulo-secao {
+                font-size: 36px;
+            }
+
+            .section-padding {
+                padding: 80px 0;
+            }
+
+            /* AJUSTE PARA SUBIR A SEÇÃO PLATAFORMAS NO MOBILE */
+            .plataformas {
+                padding-top: 40px; /* Espaçamento ainda menor no mobile */
+            }
+
+            /* SOMBRAS MENORES EM MOBILE */
+            .hero-shadow-left,
+            .hero-shadow-right {
+                width: 80px; /* Ajustado para a nova altura do banner */
+            }
+
+            /* RESPONSIVIDADE PARA O GRID DE BOTÕES */
+            .botoes-imagem-grid {
+                grid-template-columns: 1fr; /* 1 coluna no mobile */
+                gap: 20px;
+            }
+
+            /* ALTURA DO BANNER MENOR NO MOBILE PARA CABER NA TELA */
+            .hero-image-container {
+                height: 450px; /* REDUZIDO: De 550px para 450px */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-secao {
+                font-size: 30px;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            /* ALTURA DO BANNER AINDA MENOR EM TELAS PEQUENAS */
+            .hero-image-container {
+                height: 350px; /* REDUZIDO: De 450px para 350px */
+            }
+
+            .hero-shadow-left,
+            .hero-shadow-right {
+                width: 40px; /* Ajustado para a nova altura do banner */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ======== MENU DE NAVEGAÇÃO ======== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <!-- Grupo do lado esquerdo (Logo + Aviso) -->
+            <div class="nav-left-group">
+                <a href="#home" class="nav-logo">Arthur <span>Martins</span></a>
+                <span class="nav-warning-pulse"></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <!-- Menu vazio, mas a estrutura é mantida -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ======== HERO SECTION COM BANNER ======== -->
+    <section class="hero" id="home">
+        <!-- IMAGEM BANNER NO TOPO COM EFEITOS DE SOMBRA -->
+        <div class="hero-image-container">
+            <div class="hero-image-wrapper">
+                <div class="hero-image-placeholder">
+                    <!-- USANDO <picture> PARA DIFERENTES IMAGENS (ART DIRECTION) -->
+                    <picture>
+                        <!-- PARA DESKTOP (TELAS GRANDES, 769px ou mais) -->
+                        <source media="(min-width: 769px)" srcset="./banner-desktop.jpg">
+                        <!-- PARA CELULAR (TELAS PEQUENAS, até 768px) -->
+                        <source srcset="./banner-mobile.jpg">
+                        <!-- IMAGEM PADRÃO (FALLBACK) - Usada se nenhuma media query for correspondida -->
+                        <img src="./banner-desktop.jpg" alt="Arthur Martins - Estrategista Digital e Investidor" class="hero-image">
+                    </picture>
+                    <!-- TRANSIÇÃO DISCRETA COM GRADIENTE -->
+                    <div class="hero-shadow-bottom"></div>
+                    <!-- LINHA DOURADA ENVELHECIDA -->
+                    <div class="hero-gold-line"></div>
+                </div>
+                <!-- SOMBRAS LATERAIS -->
+                <div class="hero-shadow-left"></div>
+                <div class="hero-shadow-right"></div>
+            </div>
+        </div>
+        <!-- SEÇÃO DE TEXTO E BOTÃO REMOVIDA AQUI -->
+    </section>
+
+    <!-- ======== SEÇÃO PLATAFORMAS DE INVESTIMENTO ======== -->
+    <section id="plataformas" class="plataformas section-padding fade-in">
+        <div class="container">
+            <h2 class="titulo-secao">Plataformas de Investimento</h2>
+            
+            <!-- NOVO GRID DE BOTÕES COM IMAGEM -->
+            <div class="botoes-imagem-grid">
+                <!-- Botão 1: Fale Comigo -->
+                <a href="https://wa.me/55119XXXXXXXX?text=Ol%C3%A1%2C+Arthur%21+Vim+pelo+site+e+gostaria+de+mais+informa%C3%A7%C3%B5es." 
+                   target="_blank" 
+                   class="botao-imagem-link"
+                   title="Fale comigo no WhatsApp"
+                   aria-label="Fale comigo no WhatsApp">
+                    <img src="./botao-fale-comigo.jpg" alt="Botão Fale comigo no WhatsApp" class="botao-imagem" loading="lazy">
+                </a>
+
+                <!-- Botão 2: Forex -->
+                <a href="https://trade.astronbroker.com/register?aff=752922&aff_model=revenue&afftrack=" 
+                   target="_blank" 
+                   class="botao-imagem-link"
+                   title="Cadastrar na corretora de Forex"
+                   aria-label="Cadastrar na corretora de Forex">
+                    <img src="./botao-forex.jpg" alt="Botão para se cadastrar na corretora de Forex" class="botao-imagem" loading="lazy">
+                </a>
+
+                <!-- Botão 3: Opções -->
+                <a href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack=" 
+                   target="_blank" 
+                   class="botao-imagem-link"
+                   title="Cadastrar na corretora de Opções"
+                   aria-label="Cadastrar na corretora de Opções">
+                    <img src="./botao-opcoes.jpg" alt="Botão para se cadastrar na corretora de Opções" class="botao-imagem" loading="lazy">
+                </a>
+
+                <!-- Botão 4: Conheça Meu Trabalho -->
+                <a href="https://euarthurmartins.com/" 
+                   target="_blank" 
+                   class="botao-imagem-link"
+                   title="Conheça meu trabalho"
+                   aria-label="Conheça meu trabalho">
+                    <img src="./botao-conheca-meu-trabalho.jpg" alt="Botão para conhecer o trabalho de Arthur Martins" class="botao-imagem" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">
+                © <span>Arthur Martins</span> – Todos os direitos reservados
+            </p>
+        </div>
+    </footer>
+
+    <!-- ======== JAVASCRIPT ======== -->
+    <script>
+        // ======== SCROLL DO NAVBAR ========
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ======== ANIMAÇÃO AO SCROLL ========
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('load', handleScrollAnimation);
+        window.addEventListener('scroll', handleScrollAnimation);
+
+        // ======== SMOOTH SCROLL ========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const offsetTop = target.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // ======== PREVENIR SELEÇÃO ======== -->
+        document.querySelectorAll('.btn-premium').forEach(btn => {
+            btn.addEventListener('selectstart', e => e.preventDefault());
+        });
+
+        // ======== DEBOUNCE PARA PERFORMANCE ======== -->
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        window.addEventListener('scroll', debounce(handleScrollAnimation, 50));
+
+        // ======== EFEITO DE ENTRADA ======== -->
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // ======== DESTACAR SEÇÃO ATIVA NO MENU ======== -->
+        function updateActiveSection() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                const correspondingLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                
+                if (correspondingLink) {
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        correspondingLink.style.color = 'var(--dourado)';
+                    } else {
+                        correspondingLink.style.color = '';
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveSection);
+    </script>
+
+</body></html>
