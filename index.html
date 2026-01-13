@@ -10,24 +10,22 @@
     <link rel="shortcut icon" href="./favicon.ico">
     <link rel="apple-touch-icon" href="./favicon.png">
     
-    
-<!-- ======== OPEN GRAPH - IMAGEM PARA WHATSAPP/REDES SOCIAIS ======== -->
-<meta property="og:title" content="Arthur Martins - Estrategista Digital e Investidor">
-<meta property="og:description" content="Ensino pessoas a ganharem dinheiro no digital de forma estratégica, profissional e sustentável.">
-<meta property="og:image" content="https://euarthurmartins.com/og-image.jpg?v=2">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://euarthurmartins.com/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Arthur Martins">
-<meta property="og:locale" content="pt_BR">
-
+    <!-- ======== OPEN GRAPH - IMAGEM PARA WHATSAPP/REDES SOCIAIS ======== -->
+    <meta property="og:title" content="Arthur Martins - Estrategista Digital e Investidor">
+    <meta property="og:description" content="Ensino pessoas a ganharem dinheiro no digital de forma estratégica, profissional e sustentável.">
+    <meta property="og:image" content="https://euarthurmartins.com/og-image.jpg?v=2">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://euarthurmartins.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Arthur Martins">
+    <meta property="og:locale" content="pt_BR">
     
     <!-- ======== TWITTER CARD ======== -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Arthur Martins - Estrategista Digital e Investidor">
-<meta name="twitter:description" content="Ensino pessoas a ganharem dinheiro no digital de forma estratégica, profissional e sustentável.">
-<meta name="twitter:image" content="https://euarthurmartins.com/og-image.jpg?v=2"> <!-- <--- MUDA AQUI TAMBÉM -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Arthur Martins - Estrategista Digital e Investidor">
+    <meta name="twitter:description" content="Ensino pessoas a ganharem dinheiro no digital de forma estratégica, profissional e sustentável.">
+    <meta name="twitter:image" content="https://euarthurmartins.com/og-image.jpg?v=2">
     
     <!-- Google Fonts - Tipografia Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,17 +44,19 @@
         }
 
         :root {
-            /* Paleta de cores profissional escura */
+            /* Paleta de cores escura sofisticada e equilibrada */
+            --fundo-principal: #1a1a1a;
+            --fundo-secundario: #252525;
+            --fundo-cinza: #2d2d2d;
             --preto-fundo: #0d0d0d;
-            --preto-primario: #1a1a1a;
-            --preto-secundario: #262626;
             --cinza-escuro: #404040;
             --cinza-medio: #525252;
-            --cinza-claro: #a3a3a3;
-            --branco-suave: #f5f5f5;
+            --cinza-claro: #a0a0a0;
+            --branco-suave: #e8e8e8;
+            
+            /* Cores Douradas (para logo, linha, etc.) */
             --dourado: #d4af37;
             --dourado-escuro: #b8941f;
-            --azul-profundo: #1e293b;
             
             /* Tipografia */
             --fonte-titulos: 'Playfair Display', serif;
@@ -74,7 +74,7 @@
 
         body {
             font-family: var(--fonte-corpo);
-            background-color: var(--preto-fundo);
+            background-color: var(--fundo-principal);
             color: var(--branco-suave);
             line-height: 1.6;
             overflow-x: hidden;
@@ -86,7 +86,7 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(13, 13, 13, 0.95);
+            background: rgba(26, 26, 26, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 20px 0;
@@ -96,7 +96,7 @@
 
         .navbar.scrolled {
             padding: 15px 0;
-            background: rgba(13, 13, 13, 0.98);
+            background: rgba(26, 26, 26, 0.98);
         }
 
         .nav-container {
@@ -194,33 +194,44 @@
             padding: 120px 0;
         }
 
+        /* ======== BOTÕES CTA COM TAMANHO NORMAL ======== */
+        
+        /* Estilo para os botões SECUNDÁRIOS */
         .btn-premium {
             display: inline-block;
-            padding: 16px 36px;
-            background: linear-gradient(135deg, var(--dourado), var(--dourado-escuro));
-            color: var(--preto-fundo);
+            width: 280px;
+            height: 65px;
+            background-image: url('./btn-default.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: transparent;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            letter-spacing: 0.8px;
-            border-radius: 2px;
-            transition: var(--transicao-suave);
+            font-weight: 700;
+            font-size: 0;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
             text-transform: uppercase;
             cursor: pointer;
             border: none;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
         }
 
+        /* Estilo para o BOTÃO PRINCIPAL (Hero) */
+        .btn-hero {
+            background-image: url('./btn-hero.png');
+        }
+
+        /* Estilo para o BOTÃO DA COMUNIDADE */
+        .btn-comunidade {
+            background-image: url('./btn-comunidade.png');
+        }
+
+        /* Efeito ao passar o mouse (hover) - aplicado a todos */
         .btn-premium:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
-            background: linear-gradient(135deg, var(--dourado-escuro), var(--dourado));
-        }
-
-        .btn-premium:active {
-            transform: translateY(0);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
 
         .titulo-secao {
@@ -254,7 +265,7 @@
         /* ======== HERO SECTION COM BANNER ======== */
         .hero {
             min-height: 100vh;
-            background-color: #000000; /* Fundo preto sólido */
+            background: linear-gradient(180deg, var(--fundo-principal) 0%, var(--fundo-secundario) 100%);
             display: flex;
             flex-direction: column;
             position: relative;
@@ -263,8 +274,7 @@
 
         .hero-image-container {
             width: 100%;
-            /* Usando altura fixa para mobile e aspect-ratio para desktop */
-            height: 550px; /* Altura fixa para mobile */
+            height: 550px;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -274,8 +284,8 @@
 
         @media (min-width: 769px) {
             .hero-image-container {
-                aspect-ratio: 1920 / 550; /* Proporção para desktop */
-                height: auto; /* Sobrescreve a altura fixa */
+                aspect-ratio: 1920 / 550;
+                height: auto;
             }
         }
 
@@ -290,7 +300,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center; /* Padrão, será sobrescrito pelo <picture> */
+            object-position: center;
             transition: transform 0.5s ease;
         }
 
@@ -298,54 +308,6 @@
             transform: scale(1.05);
         }
 
-        /* SOMBRA ESQUERDA - EFEITO DE TRANSIÇÃO */
-        .hero-shadow-left {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 200px;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                rgba(13, 13, 13, 0.8) 0%, 
-                rgba(13, 13, 13, 0.4) 50%, 
-                transparent 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* SOMBRA DIREITA - EFEITO DE TRANSIÇÃO */
-        .hero-shadow-right {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 200px;
-            height: 100%;
-            background: linear-gradient(-90deg, 
-                rgba(13, 13, 13, 0.8) 0%, 
-                rgba(13, 13, 13, 0.4) 50%, 
-                transparent 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* TRANSIÇÃO DISCRETA COM GRADIENTE - VERSÃO MELHORADA */
-        .hero-shadow-bottom {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 250px; /* Aumentei a altura para uma transição mais suave */
-            background: linear-gradient(to top, 
-                rgba(13, 13, 13, 0.9) 0%, 
-                rgba(13, 13, 13, 0.7) 30%,
-                rgba(13, 13, 13, 0.4) 60%,
-                rgba(13, 13, 13, 0.2) 80%,
-                transparent 100%);
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        /* ======== LINHA DOURADA ENVELHECIDA ======== */
         .hero-gold-line {
             position: absolute;
             bottom: 0;
@@ -369,12 +331,28 @@
             justify-content: center;
             padding: 40px 0 80px 0;
             animation: fadeInUp 1s ease-out;
+            position: relative;
+            /* Imagem de fundo removida */
+        }
+
+        .hero-text-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 26, 26, 0.85);
+            z-index: 1;
         }
 
         .hero-text {
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            padding: 60px 40px;
         }
 
         .hero-nome {
@@ -386,6 +364,7 @@
             line-height: 1.1;
             letter-spacing: -2px;
             animation: fadeInScale 1.2s ease-out;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero-nome span {
@@ -395,10 +374,11 @@
 
         .hero-descricao {
             font-size: 22px;
-            color: var(--cinza-claro);
+            color: var(--branco-suave);
             line-height: 1.7;
             margin-bottom: 50px;
             animation: fadeIn 1.5s ease-out;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .hero-destaque {
@@ -412,7 +392,7 @@
 
         /* ======== SEÇÃO LIVE E COMUNIDADE ======== */
         .live-comunidade {
-            background: var(--preto-primario);
+            background: var(--fundo-secundario);
             border-top: 1px solid var(--cinza-escuro);
         }
 
@@ -430,7 +410,7 @@
         .live-image-placeholder {
             width: 100%;
             height: 500px;
-            background: var(--preto-secundario);
+            background: var(--fundo-cinza);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -441,8 +421,7 @@
             border: 2px solid var(--cinza-escuro);
         }
 
-        /* ======== IMAGEM LIVE WHATSAPP ======== */
-        .live-whatsapp-image {
+        .live-whatsapp-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -450,7 +429,7 @@
             transition: transform 0.3s ease;
         }
 
-        .live-image-placeholder:hover .live-whatsapp-image {
+        .live-image-placeholder:hover .live-whatsapp-video {
             transform: scale(1.02);
         }
 
@@ -480,84 +459,168 @@
             color: var(--branco-suave);
         }
 
-        /* ======== SEÇÃO PLATAFORMAS ======== */
-        .plataformas {
-            background: var(--preto-secundario);
+        /* ======== SEÇÃO PORTFÓLIO ======== */
+        .portfolio {
+            background: var(--fundo-principal);
             border-top: 1px solid var(--cinza-escuro);
         }
 
-        .plataformas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .portfolio-subtitulo {
+            font-size: 18px;
+            color: var(--cinza-claro);
+            margin-top: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin: 60px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            width: fit-content;
+        }
+
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .portfolio-item {
+            flex: 0 0 auto;
+            margin: 0 20px;
+            background: var(--fundo-secundario);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            transition: var(--transicao-suave);
+            cursor: pointer;
+            border: 1px solid var(--cinza-escuro);
+            width: 320px;
+            height: 420px;
+            position: relative;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-premium);
+            border-color: var(--dourado);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.1);
+        }
+
+        .portfolio-cta {
+            text-align: center;
             margin-top: 60px;
         }
 
-        .plataforma-card {
-            background: var(--preto-primario);
-            border: 1px solid var(--cinza-escuro);
-            border-radius: 8px;
-            padding: 50px 40px;
+        /* ======== SEÇÃO DEPOIMENTOS ======== */
+        .depoimentos {
+            background: var(--fundo-secundario);
+            border-top: 1px solid var(--cinza-escuro);
+        }
+
+        .depoimentos-header {
             text-align: center;
-            transition: var(--transicao-suave);
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 60px;
         }
 
-        .plataforma-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--dourado), var(--dourado-escuro));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .plataforma-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--sombra-suave);
-            border-color: var(--cinza-medio);
-        }
-
-        .plataforma-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .plataforma-logo {
-            width: 100px;
-            height: 100px;
-            background: var(--preto-secundario);
-            border-radius: 8px;
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 42px;
-            color: var(--dourado);
-            border: 1px solid var(--cinza-escuro);
-        }
-
-        .plataforma-nome {
-            font-family: var(--fonte-titulos);
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--branco-suave);
-            margin-bottom: 15px;
-        }
-
-        .plataforma-descricao {
+        .depoimentos-subtitulo {
+            font-size: 18px;
             color: var(--cinza-claro);
-            margin-bottom: 35px;
+            margin-top: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
             line-height: 1.7;
-            font-size: 16px;
+        }
+
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .depoimento-item {
+            background: var(--fundo-principal);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            transition: var(--transicao-suave);
+            border: 1px solid var(--cinza-escuro);
+            position: relative;
+        }
+
+        .depoimento-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-premium);
+            border-color: var(--dourado);
+        }
+
+        .depoimento-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .depoimento-item:hover .depoimento-image {
+            transform: scale(1.05);
+        }
+
+        .depoimento-whatsapp {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .depoimento-whatsapp img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .depoimento-whatsapp:hover img {
+            transform: scale(1.05);
+        }
+
+        .depoimentos-cta {
+            text-align: center;
+            margin-top: 20px;
         }
 
         /* ======== SEÇÃO INTELIGÊNCIA ARTIFICIAL ======== */
         .ia-section {
-            background: linear-gradient(180deg, var(--preto-secundario) 0%, var(--azul-profundo) 100%);
+            background: linear-gradient(180deg, var(--fundo-secundario) 0%, #1e293b 100%);
             border-top: 1px solid var(--cinza-escuro);
         }
 
@@ -594,38 +657,35 @@
             margin: 60px 0;
         }
 
+        /* ======== ESTILO ATUALIZADO SEM TEXTOS ======== */
         .ia-beneficio {
-            background: rgba(26, 26, 26, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             border-radius: 8px;
-            padding: 30px;
             transition: var(--transicao-suave);
+            min-height: 300px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            border: 1px solid var(--cinza-escuro);
         }
 
         .ia-beneficio:hover {
-            background: rgba(26, 26, 26, 0.7);
-            transform: translateY(-3px);
-            box-shadow: var(--sombra-suave);
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-premium);
+            border-color: var(--dourado);
         }
-
-        .ia-beneficio i {
-            font-size: 32px;
-            color: var(--dourado);
-            margin-bottom: 20px;
-            display: block;
+        
+        /* Classes específicas para as imagens de fundo */
+        .ia-beneficio-1 {
+            background-image: url('./ia-bg-1.jpg');
         }
-
-        .ia-beneficio h4 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--branco-suave);
+        .ia-beneficio-2 {
+            background-image: url('./ia-bg-2.jpg');
         }
-
-        .ia-beneficio p {
-            color: var(--cinza-claro);
-            line-height: 1.7;
-            font-size: 15px;
+        .ia-beneficio-3 {
+            background-image: url('./ia-bg-3.jpg');
         }
 
         .ia-cta {
@@ -635,7 +695,7 @@
 
         /* ======== SEÇÃO AUTORIDADE ======== */
         .autoridade {
-            background: var(--preto-primario);
+            background: var(--fundo-secundario);
             border-top: 1px solid var(--cinza-escuro);
         }
 
@@ -661,7 +721,7 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: var(--preto-secundario);
+            background: var(--fundo-cinza);
             border: 3px solid var(--dourado);
             display: flex;
             align-items: center;
@@ -718,14 +778,8 @@
 
         /* ======== ANIMAÇÕES ======== */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeIn {
@@ -734,14 +788,8 @@
         }
 
         @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .fade-in {
@@ -762,7 +810,7 @@
                 left: -100%;
                 top: 70px;
                 flex-direction: column;
-                background: var(--preto-primario);
+                background: var(--fundo-secundario);
                 width: 100%;
                 text-align: center;
                 transition: 0.3s;
@@ -770,110 +818,37 @@
                 padding: 20px 0;
                 gap: 20px;
             }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hero-nome {
-                font-size: 48px;
-            }
-
-            .hero-descricao {
-                font-size: 18px;
-            }
-
-            .hero-text-container {
-                padding: 40px 0 60px 0;
-            }
-
-            .live-content {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-
-            .live-image-placeholder {
-                height: 400px;
-            }
-
-            .titulo-secao {
-                font-size: 36px;
-            }
-
-            .ia-frase {
-                font-size: 28px;
-            }
-
-            .autoridade-frase {
-                font-size: 24px;
-            }
-
-            .section-padding {
-                padding: 80px 0;
-            }
-
-            .plataformas-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .ia-beneficios {
-                grid-template-columns: 1fr;
-            }
-
-            .autoridade-foto {
-                width: 150px;
-                height: 150px;
-            }
-
-            /* SOMBRAS MENORES EM MOBILE */
-            .hero-shadow-left,
-            .hero-shadow-right {
-                width: 100px;
-            }
+            .nav-menu.active { left: 0; }
+            .hamburger { display: flex; }
+            .hero-nome { font-size: 48px; }
+            .hero-descricao { font-size: 18px; }
+            .hero-text { padding: 40px 20px; }
+            .hero-text-container { padding: 40px 0 60px 0; }
+            .live-content { grid-template-columns: 1fr; gap: 50px; }
+            .live-image-placeholder { height: 400px; }
+            .titulo-secao { font-size: 36px; }
+            .ia-frase { font-size: 28px; }
+            .autoridade-frase { font-size: 24px; }
+            .section-padding { padding: 80px 0; }
+            .ia-beneficios { grid-template-columns: 1fr; }
+            .autoridade-foto { width: 150px; height: 150px; }
+            .portfolio-item { width: 280px; height: 380px; margin: 0 15px; }
+            .carousel-container { margin: 40px 0; }
+            .depoimentos-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+            .depoimento-whatsapp { height: 400px; }
         }
 
         @media (max-width: 480px) {
-            .hero-nome {
-                font-size: 36px;
-            }
-
-            .hero-descricao {
-                font-size: 16px;
-            }
-
-            .titulo-secao {
-                font-size: 30px;
-            }
-
-            .ia-frase {
-                font-size: 24px;
-            }
-
-            .plataforma-card {
-                padding: 40px 25px;
-            }
-
-            .section-padding {
-                padding: 60px 0;
-            }
-
-            .hero-image-container {
-                height: 450px; /* Altura um pouco maior para telas muito pequenas */
-            }
-
-            .autoridade-foto {
-                width: 120px;
-                height: 120px;
-            }
-
-            .hero-shadow-left,
-            .hero-shadow-right {
-                width: 50px;
-            }
+            .hero-nome { font-size: 36px; }
+            .hero-descricao { font-size: 16px; }
+            .titulo-secao { font-size: 30px; }
+            .ia-frase { font-size: 24px; }
+            .section-padding { padding: 60px 0; }
+            .hero-image-container { height: 450px; }
+            .autoridade-foto { width: 120px; height: 120px; }
+            .portfolio-item { width: 250px; height: 350px; margin: 0 10px; }
+            .depoimentos-grid { grid-template-columns: 1fr; }
+            .depoimento-whatsapp { height: 350px; }
         }
     </style>
 </head>
@@ -884,8 +859,8 @@
             <a href="#home" class="nav-logo">Arthur <span>Martins</span></a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Início</a></li>
-                <li><a href="#live" class="nav-link">Live</a></li>
-                <li><a href="#plataformas" class="nav-link">Plataformas</a></li>
+                <li><a href="#live" class="nav-link">Autoridade</a></li>
+                <li><a href="#plataformas" class="nav-link">Mentoria</a></li>
                 <li><a href="#ia" class="nav-link">Inteligência Artificial</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
@@ -896,43 +871,29 @@
         </div>
     </nav>
 
-    <!-- ======== HERO SECTION COM BANNER (SOLUÇÃO 2) ======== -->
+    <!-- ======== HERO SECTION COM BANNER ======== -->
     <section class="hero" id="home">
-        <!-- IMAGEM BANNER NO TOPO COM EFEITOS DE SOMBRA -->
         <div class="hero-image-container">
             <div class="hero-image-wrapper">
                 <div class="hero-image-placeholder">
-                    <!-- USANDO <picture> PARA DIFERENTES IMAGENS (ART DIRECTION) -->
                     <picture>
-                        <!-- PARA DESKTOP (TELAS GRANDES, 769px ou mais) -->
                         <source media="(min-width: 769px)" srcset="./banner-desktop.jpg">
-                        <!-- PARA CELULAR (TELAS PEQUENAS, até 768px) -->
                         <source srcset="./banner-mobile.jpg">
-                        <!-- IMAGEM PADRÃO (FALLBACK) - Usada se nenhuma media query for correspondida -->
                         <img src="./banner-desktop.jpg" alt="Arthur Martins" class="hero-image">
                     </picture>
-                    <!-- TRANSIÇÃO DISCRETA COM GRADIENTE -->
-                    <div class="hero-shadow-bottom"></div>
-                    <!-- LINHA DOURADA ENVELHECIDA -->
                     <div class="hero-gold-line"></div>
                 </div>
-                <!-- SOMBRAS LATERAIS -->
-                <div class="hero-shadow-left"></div>
-                <div class="hero-shadow-right"></div>
             </div>
         </div>
         
-        <!-- TEXTO CENTRALIZADO ABAIXO -->
         <div class="hero-text-container">
             <div class="hero-text">
                 <h1 class="hero-nome">Arthur <span>Martins</span></h1>
                 <p class="hero-descricao">
                     Olá, sou Arthur Martins. <span class="hero-destaque">Estrategista Digital</span>, 
-                    <span class="hero-destaque">Especialista</span> e <span class="hero-destaque">Investidor</span>. 
-                    Operações ao vivo todos os dias, mostrando na prática como analisar o mercado, tomar decisões e aplicar gestão de risco, com conteúdo 100% educacional e gratuito.
-                </p>
+                    <span class="hero-destaque">Especialista</span> e <span class="hero-destaque">Investidor</span>. Operações ao vivo todos os dias, mostrando na prática como analisar o mercado, tomar decisões e aplicar gestão de risco, com conteúdo 100% educacional e gratuito.</p>
                 <div class="hero-cta">
-                    <a href="#live" class="btn-premium">Conheça Meu Trabalho</a>
+                    <a href="#live" class="btn-premium btn-hero">Conheça Meu Trabalho</a>
                 </div>
             </div>
         </div>
@@ -944,62 +905,59 @@
             <div class="live-content">
                 <div class="live-image">
                     <div class="live-image-placeholder">
-                        <div class="live-badge">AO VIVO</div>
-                        <!-- IMAGEM WHATSAPP COM CAMINHO RELATIVO -->
-                        <img src="./live-whatsapp.jpg" 
-                             alt="Print do WhatsApp - Live de Arthur Martins" 
-                             class="live-whatsapp-image">
+                        <div class="live-badge">IMPORTANTE</div>
+                        <video src="./live-whatsapp.mp4" alt="Vídeo da Live de Arthur Martins" class="live-whatsapp-video" controls="" autoplay="" muted="" loop="" playsinline="">
+                            Seu navegador não suporta a tag de vídeo.
+                        </video>
                     </div>
                 </div>
                 <div class="live-text">
-                    <h2 class="titulo-secao">Sessão da Live</h2>
-                    <p class="texto-descritivo">
-                        Faço lives todos os dias investindo, operando e mostrando estratégias reais dentro da minha comunidade gratuita. 
-                        Aprenda na prática como o mercado Financeiro funciona e como você pode começar a investir de forma inteligente.
-                    </p>
+                    <h2 class="titulo-secao">Está preparado pra isso?</h2>
+                    <div class="texto-descritivo">
+                        Tá cansado de perder dinheiro no mercado? Eu não preciso te convencer, eu já tenho resultado. Quem está em busca é você. O que eu faço aqui é ajudar, mostrar o caminho e executar na prática. Quem quer resultado, fica. Quem não quer, segue tentando sozinho.
+                    </div>
                     <a href="#" class="btn-premium" onclick="event.preventDefault(); handleComunidadeClick();">
-                        Faça parte da minha comunidade
+                        Quero aprender agora
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ======== SEÇÃO PLATAFORMAS DE INVESTIMENTO ======== -->
-    <section id="plataformas" class="plataformas section-padding fade-in">
+    <!-- ======== SEÇÃO PORTFÓLIO ======== -->
+    <section id="plataformas" class="portfolio section-padding fade-in">
         <div class="container">
-            <h2 class="titulo-secao">Plataformas de Investimento</h2>
-            <div class="plataformas-grid">
-                <div class="plataforma-card">
-                    <div class="plataforma-logo">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="plataforma-nome">Corretora da live</h3>
-                    <p class="plataforma-descricao">
-                        Corretora utilizada nas minhas lives ao vivo. É nela que realizo as operações e demonstro as estratégias na prática.
-                    </p>
-                    <a href="#" class="btn-premium" onclick="event.preventDefault(); handlePlataformaClick('Forex');">
-                        Cadastrar na corretora
-                    </a>
+            <div class="portfolio-header">
+                <h2 class="titulo-secao">Mentoria ao vivo</h2>
+                <p class="portfolio-subtitulo"><p data-pm-slice="0 0 []" class="editable-hover">Eu não vendo curso gravado. Curso faz você enrolar e não aplicar, aqui tudo é ao vivo, com acompanhamento real e prática no mercado. Você aprende, tira dúvidas na hora e executa do jeito certo. Até porque, quem sabe, faz ao vivo. E é assim que os resultados acontecem.</p></p>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="portfolio-item"><img src="./projeto1.jpg" alt="Projeto 1" class="portfolio-image"></div>
+                    <div class="portfolio-item"><img src="./projeto2.jpg" alt="Projeto 2" class="portfolio-image"></div>
+                    <div class="portfolio-item"><img src="./projeto3.jpg" alt="Projeto 3" class="portfolio-image"></div>
+                    <div class="portfolio-item"><img src="./projeto4.jpg" alt="Projeto 4" class="portfolio-image"></div>
+                    <div class="portfolio-item"><img src="./projeto5.jpg" alt="Projeto 5" class="portfolio-image"></div>
+                    <div class="portfolio-item"><img src="./projeto6.jpg" alt="Projeto 6" class="portfolio-image"></div>
+                    <div class="portfolio-item"><img src="./projeto1.jpg" alt="Projeto 1" class="portfolio-image"></div>
+                    <div class="portfolio-item"><img src="./projeto2.jpg" alt="Projeto 2" class="portfolio-image"></div>
+                    <div class="portfolio-item"><img src="./projeto3.jpg" alt="Projeto 3" class="portfolio-image"></div>
+                    <div class="portfolio-item"><img src="./projeto4.jpg" alt="Projeto 4" class="portfolio-image"></div>
+                    <div class="portfolio-item"><img src="./projeto5.jpg" alt="Projeto 5" class="portfolio-image"></div>
+                    <div class="portfolio-item"><img src="./projeto6.jpg" alt="Projeto 6" class="portfolio-image"></div>
                 </div>
-                
-                <div class="plataforma-card">
-                    <div class="plataforma-logo">
-                        <i class="fas fa-coins"></i>
-                    </div>
-                    <h3 class="plataforma-nome">Cadastre-se</h3>
-                    <p class="plataforma-descricao">
-                        Invista em opções com alta rentabilidade. Para quem busca uma forma mais simples, sem muitas análises, na melhor plataforma Quadcode do momento.
-                    </p>
-                    <a href="#" class="btn-premium" onclick="event.preventDefault(); handlePlataformaClick('Opções');">
-                        Cadastrar na corretora
-                    </a>
-                </div>
+            </div>
+
+            <div class="portfolio-cta">
+                <a href="#" class="btn-premium" onclick="event.preventDefault(); handleIAClick();">
+                    Aprenda comigo aqui
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ======== SEÇÃO INTELIGÊNCIA ARTIFICIAL ======== -->
+    <!-- ======== SEÇÃO INTELIGÊNCIA ARTIFICIAL (MOVIDA PARA CIMA) ======== -->
     <section id="ia" class="ia-section section-padding fade-in">
         <div class="container">
             <div class="ia-content">
@@ -1010,24 +968,14 @@
                 </p>
                 
                 <div class="ia-beneficios">
-                    <div class="ia-beneficio">
-                        <i class="fas fa-brain"></i>
-                        <h4>Otimizando com IA</h4>
-                        <p>Algoritmos de IA que analisam padrões de mercado e identificam as melhores oportunidades de investimento em tempo real.</p>
-                    </div>
+                    <!-- TÓPICO 1 - APENAS IMAGEM -->
+                    <div class="ia-beneficio ia-beneficio-1"></div>
                     
-                    <div class="ia-beneficio">
-                        <i class="fas fa-bullhorn"></i>
-                        <h4><div class="">Suporte 24h</div></h4>
-                        <p>Acesso ao suporte especializado em Inteligência Artificial, para quem leva o mercado a sério.</p>
-                    </div>
+                    <!-- TÓPICO 2 - APENAS IMAGEM -->
+                    <div class="ia-beneficio ia-beneficio-2"></div>
                     
-                    <div class="ia-beneficio">
-                        <i class="fas fa-rocket"></i>
-                        <h4>Escalando a operação</h4>
-                        <p>Aprenda com os melhores em trading com IA.
-Do básico ao avançado, com acompanhamento próximo e aplicação prática no mercado real.</p>
-                    </div>
+                    <!-- TÓPICO 3 - APENAS IMAGEM -->
+                    <div class="ia-beneficio ia-beneficio-3"></div>
                 </div>
                 
                 <div class="ia-cta">
@@ -1039,25 +987,56 @@ Do básico ao avançado, com acompanhamento próximo e aplicação prática no m
         </div>
     </section>
 
+    <!-- ======== SEÇÃO DEPOIMENTOS (AGORA EM BAIXO DA IA) ======== -->
+    <section id="depoimentos" class="depoimentos section-padding fade-in">
+        <div class="container">
+            <div class="depoimentos-header">
+                <h2 class="titulo-secao">O que dizem na comunidade</h2>
+                <p class="depoimentos-subtitulo">
+                    Veja o que nossos alunos estão falando sobre os resultados obtidos após aplicar nossas estratégias e participar das lives gratuitas.&nbsp;</p>
+            </div>
+
+            <div class="depoimentos-grid">
+                <div class="depoimento-item">
+                    <div class="depoimento-whatsapp">
+                        <img src="./depoimento1.jpg" alt="Depoimento 1">
+                    </div>
+                </div>
+                <div class="depoimento-item">
+                    <div class="depoimento-whatsapp">
+                        <img src="./depoimento2.jpg" alt="Depoimento 2">
+                    </div>
+                </div>
+                <div class="depoimento-item">
+                    <div class="depoimento-whatsapp">
+                        <img src="./depoimento3.jpg" alt="Depoimento 3">
+                    </div>
+                </div>
+            </div>
+
+            <div class="depoimentos-cta">
+                <a href="#" class="btn-premium btn-comunidade" onclick="event.preventDefault(); handleComunidadeClick();">
+                    Fazer Parte da Comunidade
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- ======== SEÇÃO AUTORIDADE / MENTORIA ======== -->
     <section id="autoridade" class="autoridade section-padding fade-in">
         <div class="container">
             <div class="autoridade-content">
-                <!-- FOTO PEQUENA DO ARTHUR -->
                 <div class="autoridade-foto-container">
                     <div class="autoridade-foto">
-                        <!-- SUA FOTO DO GITHUB COM O NOME "mentor.jpg" -->
                         <img src="./mentor.jpg" alt="Foto de Arthur Martins">
                     </div>
                 </div>
                 
                 <h2 class="titulo-secao">Conheça seu último mentor: Arthur Martins</h2>
                 <p class="autoridade-frase">
-                    "Sou a <span>prova</span> de que, com <span>método, gestão e disciplina</span>, é possível
-<span>faturar no mercado financeiro</span> de forma consistente."
+                    "Sou a <span class="">prova</span> de que, com&nbsp;<span style="color: rgb(212, 175, 55); caret-color: rgb(255, 255, 0);" class="">método, gestão e disciplina,&nbsp;</span>é possível&nbsp;<span class="">faturar nesse mercado</span> de forma consistente."
                 </p>
                 
-                <!-- BOTÃO DE MENTORIA -->
                 <a href="#" class="btn-premium" onclick="event.preventDefault(); handleMentoriaClick();">
                     Aprenda comigo aqui
                 </a>
@@ -1076,7 +1055,6 @@ Do básico ao avançado, com acompanhamento próximo e aplicação prática no m
 
     <!-- ======== JAVASCRIPT ======== -->
     <script>
-        // ======== MENU HAMBÚRGUER ========
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
         const navLinks = document.querySelectorAll('.nav-link');
@@ -1086,7 +1064,6 @@ Do básico ao avançado, com acompanhamento próximo e aplicação prática no m
             navMenu.classList.toggle('active');
         });
 
-        // Fechar menu ao clicar em um link
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -1094,7 +1071,6 @@ Do básico ao avançado, com acompanhamento próximo e aplicação prática no m
             });
         });
 
-        // ======== SCROLL DO NAVBAR ========
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 100) {
@@ -1104,14 +1080,11 @@ Do básico ao avançado, com acompanhamento próximo e aplicação prática no m
             }
         });
 
-        // ======== ANIMAÇÃO AO SCROLL ========
         function handleScrollAnimation() {
             const elements = document.querySelectorAll('.fade-in');
-            
             elements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const elementVisible = 150;
-                
                 if (elementTop < window.innerHeight - elementVisible) {
                     element.classList.add('visible');
                 }
@@ -1121,7 +1094,6 @@ Do básico ao avançado, com acompanhamento próximo e aplicação prática no m
         window.addEventListener('load', handleScrollAnimation);
         window.addEventListener('scroll', handleScrollAnimation);
 
-        // ======== SMOOTH SCROLL ========
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
@@ -1130,82 +1102,33 @@ Do básico ao avançado, com acompanhamento próximo e aplicação prática no m
                     const target = document.querySelector(href);
                     if (target) {
                         const offsetTop = target.offsetTop - 80;
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
+                        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
                     }
                 }
             });
         });
-
-        // ======== FUNÇÕES DE INTERAÇÃO COM LINKS REAIS ========
         
-        // Botão da comunidade (grupo de WhatsApp)
+        // ======== FUNÇÕES DE INTERAÇÃO COM WHATSAPP ========
+        
         function handleComunidadeClick() {
-            window.open('https://chat.whatsapp.com/BqocKGrw95I5WWdfJXrdAg', '_blank');
-            event.target.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                event.target.style.transform = '';
-            }, 150);
-        }
-
-        // Botões das plataformas (corretora)
-        function handlePlataformaClick(plataforma) {
-            let linkDaCorretora = '';
-
-            // Verifica qual plataforma foi clicada e define o link correspondente
-            if (plataforma === 'Forex') {
-                linkDaCorretora = 'https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack=';
-            } else if (plataforma === 'Opções') {
-                linkDaCorretora = 'https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack=';
-            }
-
-            // Abre a janela com o link correto
-            if (linkDaCorretora) {
-                window.open(linkDaCorretora, '_blank');
-            }
-
-            // Animação do botão (permanece a mesma)
-            event.target.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                event.target.style.transform = '';
-            }, 150);
-        }
-
-        // Botão da Inteligência Artificial (WhatsApp)
-        function handleIAClick() {
-            const mensagem = encodeURIComponent('Quero aprender sobre I.A');
+            const mensagem = encodeURIComponent('Olá, Arthur! Vi seu site e quero fazer parte da comunidade.');
             window.open(`https://wa.me/5522997301385?text=${mensagem}`, '_blank');
-            event.target.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                event.target.style.transform = '';
-            }, 150);
         }
 
-        // ======== FUNÇÃO PARA O BOTÃO DE MENTORIA ========
+        function handleIAClick() {
+            const mensagem = encodeURIComponent('Quero aprender sobre seus projetos');
+            window.open(`https://wa.me/5522997301385?text=${mensagem}`, '_blank');
+        }
+
         function handleMentoriaClick() {
             const mensagem = encodeURIComponent('Quero fazer uma mentoria');
             window.open(`https://wa.me/5522997301385?text=${mensagem}`, '_blank');
-            event.target.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                event.target.style.transform = '';
-            }, 150);
         }
 
-        // ======== PREVENIR SELEÇÃO ========
-        document.querySelectorAll('.btn-premium').forEach(btn => {
-            btn.addEventListener('selectstart', e => e.preventDefault());
-        });
-
-        // ======== DEBOUNCE PARA PERFORMANCE ========
         function debounce(func, wait) {
             let timeout;
             return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
+                const later = () => { clearTimeout(timeout); func(...args); };
                 clearTimeout(timeout);
                 timeout = setTimeout(later, wait);
             };
@@ -1213,7 +1136,6 @@ Do básico ao avançado, com acompanhamento próximo e aplicação prática no m
 
         window.addEventListener('scroll', debounce(handleScrollAnimation, 50));
 
-        // ======== EFEITO DE ENTRADA ========
         document.addEventListener('DOMContentLoaded', () => {
             document.body.style.opacity = '0';
             setTimeout(() => {
@@ -1222,17 +1144,14 @@ Do básico ao avançado, com acompanhamento próximo e aplicação prática no m
             }, 100);
         });
 
-        // ======== DESTACAR SEÇÃO ATIVA NO MENU ========
         function updateActiveSection() {
             const sections = document.querySelectorAll('section[id]');
             const scrollY = window.pageYOffset;
-
             sections.forEach(section => {
                 const sectionHeight = section.offsetHeight;
                 const sectionTop = section.offsetTop - 100;
                 const sectionId = section.getAttribute('id');
                 const correspondingLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-                
                 if (correspondingLink) {
                     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                         correspondingLink.style.color = 'var(--dourado)';
@@ -1244,6 +1163,20 @@ Do básico ao avançado, com acompanhamento próximo e aplicação prática no m
         }
 
         window.addEventListener('scroll', updateActiveSection);
+
+        const carouselTrack = document.getElementById('carouselTrack');
+        carouselTrack.addEventListener('mouseenter', () => { carouselTrack.style.animationPlayState = 'paused'; });
+        carouselTrack.addEventListener('mouseleave', () => { carouselTrack.style.animationPlayState = 'running'; });
+
+        function adjustCarouselSpeed() {
+            if (window.innerWidth <= 768) {
+                carouselTrack.style.animationDuration = '20s';
+            } else {
+                carouselTrack.style.animationDuration = '30s';
+            }
+        }
+        window.addEventListener('resize', adjustCarouselSpeed);
+        adjustCarouselSpeed();
     </script>
-</body>
-</html>
+
+</body></html>
