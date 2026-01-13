@@ -30,7 +30,7 @@
     <!-- Google Fonts - Tipografia Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     
     <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -332,7 +332,6 @@
             padding: 40px 0 80px 0;
             animation: fadeInUp 1s ease-out;
             position: relative;
-            /* Imagem de fundo removida */
         }
 
         .hero-text-container::before {
@@ -421,16 +420,15 @@
             border: 2px solid var(--cinza-escuro);
         }
 
+        /* ======== ESTILO ATUALIZADO PARA O VÍDEO DO YOUTUBE ======== */
         .live-whatsapp-video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
             border-radius: 6px;
-            transition: transform 0.3s ease;
-        }
-
-        .live-image-placeholder:hover .live-whatsapp-video {
-            transform: scale(1.02);
+            border: none;
         }
 
         .live-badge {
@@ -539,6 +537,81 @@
             margin-top: 60px;
         }
 
+        /* ======== SEÇÃO INTELIGÊNCIA ARTIFICIAL ======== */
+        .ia-section {
+            background: linear-gradient(180deg, var(--fundo-secundario) 0%, #1e293b 100%);
+            border-top: 1px solid var(--cinza-escuro);
+        }
+
+        .ia-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .ia-section .titulo-secao {
+            color: var(--branco-suave);
+        }
+
+        .ia-section .titulo-secao::after {
+            background: var(--dourado);
+        }
+
+        .ia-frase {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--branco-suave);
+            margin-bottom: 50px;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        .ia-frase span {
+            color: var(--dourado);
+        }
+
+        .ia-beneficios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        /* ======== ESTILO ATUALIZADO SEM TEXTOS ======== */
+        .ia-beneficio {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 8px;
+            transition: var(--transicao-suave);
+            min-height: 300px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            border: 1px solid var(--cinza-escuro);
+        }
+
+        .ia-beneficio:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-premium);
+            border-color: var(--dourado);
+        }
+        
+        /* Classes específicas para as imagens de fundo */
+        .ia-beneficio-1 {
+            background-image: url('./ia-bg-1.jpg');
+        }
+        .ia-beneficio-2 {
+            background-image: url('./ia-bg-2.jpg');
+        }
+        .ia-beneficio-3 {
+            background-image: url('./ia-bg-3.jpg');
+        }
+
+        .ia-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+
         /* ======== SEÇÃO DEPOIMENTOS ======== */
         .depoimentos {
             background: var(--fundo-secundario);
@@ -616,81 +689,6 @@
         .depoimentos-cta {
             text-align: center;
             margin-top: 20px;
-        }
-
-        /* ======== SEÇÃO INTELIGÊNCIA ARTIFICIAL ======== */
-        .ia-section {
-            background: linear-gradient(180deg, var(--fundo-secundario) 0%, #1e293b 100%);
-            border-top: 1px solid var(--cinza-escuro);
-        }
-
-        .ia-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .ia-section .titulo-secao {
-            color: var(--branco-suave);
-        }
-
-        .ia-section .titulo-secao::after {
-            background: var(--dourado);
-        }
-
-        .ia-frase {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--branco-suave);
-            margin-bottom: 50px;
-            line-height: 1.3;
-            text-align: center;
-        }
-
-        .ia-frase span {
-            color: var(--dourado);
-        }
-
-        .ia-beneficios {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin: 60px 0;
-        }
-
-        /* ======== ESTILO ATUALIZADO SEM TEXTOS ======== */
-        .ia-beneficio {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 8px;
-            transition: var(--transicao-suave);
-            min-height: 300px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--sombra-suave);
-            border: 1px solid var(--cinza-escuro);
-        }
-
-        .ia-beneficio:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--sombra-premium);
-            border-color: var(--dourado);
-        }
-        
-        /* Classes específicas para as imagens de fundo */
-        .ia-beneficio-1 {
-            background-image: url('./ia-bg-1.jpg');
-        }
-        .ia-beneficio-2 {
-            background-image: url('./ia-bg-2.jpg');
-        }
-        .ia-beneficio-3 {
-            background-image: url('./ia-bg-3.jpg');
-        }
-
-        .ia-cta {
-            text-align: center;
-            margin-top: 50px;
         }
 
         /* ======== SEÇÃO AUTORIDADE ======== */
@@ -906,9 +904,14 @@
                 <div class="live-image">
                     <div class="live-image-placeholder">
                         <div class="live-badge">IMPORTANTE</div>
-                        <video src="./live-whatsapp.mp4" alt="Vídeo da Live de Arthur Martins" class="live-whatsapp-video" controls="" autoplay="" muted="" loop="" playsinline="">
-                            Seu navegador não suporta a tag de vídeo.
-                        </video>
+                        <!-- ======== VÍDEO DO YOUTUBE INCORPORADO (VERSÃO CORRIGIDA) ======== -->
+                        <iframe 
+                            src="https://www.youtube.com/embed/zXzZC-n0uLY?autoplay=1&mute=1&loop=1&playlist=zXzZC-n0uLY" 
+                            class="live-whatsapp-video"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
                 <div class="live-text">
@@ -957,7 +960,7 @@
         </div>
     </section>
 
-    <!-- ======== SEÇÃO INTELIGÊNCIA ARTIFICIAL (MOVIDA PARA CIMA) ======== -->
+    <!-- ======== SEÇÃO INTELIGÊNCIA ARTIFICIAL (MOVIDA PARA CÁ) ======== -->
     <section id="ia" class="ia-section section-padding fade-in">
         <div class="container">
             <div class="ia-content">
@@ -987,7 +990,7 @@
         </div>
     </section>
 
-    <!-- ======== SEÇÃO DEPOIMENTOS (AGORA EM BAIXO DA IA) ======== -->
+    <!-- ======== SEÇÃO DEPOIMENTOS ======== -->
     <section id="depoimentos" class="depoimentos section-padding fade-in">
         <div class="container">
             <div class="depoimentos-header">
