@@ -389,75 +389,7 @@
             animation: fadeInUp 1.8s ease-out;
         }
 
-        /* ======== SEÇÃO LIVE E COMUNIDADE ======== */
-        .live-comunidade {
-            background: var(--fundo-secundario);
-            border-top: 1px solid var(--cinza-escuro);
-        }
-
-        .live-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .live-image {
-            position: relative;
-        }
-
-        .live-image-placeholder {
-            width: 100%;
-            height: 500px;
-            background: var(--fundo-cinza);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--sombra-suave);
-            position: relative;
-            overflow: hidden;
-            border: 2px solid var(--cinza-escuro);
-        }
-
-        /* ======== ESTILO ATUALIZADO PARA O VÍDEO DO YOUTUBE ======== */
-        .live-whatsapp-video {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            border-radius: 6px;
-            border: none;
-        }
-
-        .live-badge {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            background: var(--dourado);
-            color: var(--preto-fundo);
-            padding: 8px 20px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            animation: pulse 2s infinite;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-            z-index: 2;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
-        .live-text h2 {
-            color: var(--branco-suave);
-        }
-
-        /* ======== SEÇÃO PORTFÓLIO ======== */
+        /* ======== SEÇÃO PORTFÓLIO (MENTORIA) ======== */
         .portfolio {
             background: var(--fundo-principal);
             border-top: 1px solid var(--cinza-escuro);
@@ -612,86 +544,7 @@
             margin-top: 50px;
         }
 
-        /* ======== SEÇÃO DEPOIMENTOS ======== */
-        .depoimentos {
-            background: var(--fundo-secundario);
-            border-top: 1px solid var(--cinza-escuro);
-        }
-
-        .depoimentos-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .depoimentos-subtitulo {
-            font-size: 18px;
-            color: var(--cinza-claro);
-            margin-top: 15px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-        }
-
-        .depoimentos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .depoimento-item {
-            background: var(--fundo-principal);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--sombra-suave);
-            transition: var(--transicao-suave);
-            border: 1px solid var(--cinza-escuro);
-            position: relative;
-        }
-
-        .depoimento-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--sombra-premium);
-            border-color: var(--dourado);
-        }
-
-        .depoimento-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .depoimento-item:hover .depoimento-image {
-            transform: scale(1.05);
-        }
-
-        .depoimento-whatsapp {
-            position: relative;
-            width: 100%;
-            height: 450px;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-
-        .depoimento-whatsapp img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .depoimento-whatsapp:hover img {
-            transform: scale(1.05);
-        }
-
-        .depoimentos-cta {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        /* ======== SEÇÃO AUTORIDADE ======== */
+        /* ======== SEÇÃO AUTORIDADE / MENTORIA ======== */
         .autoridade {
             background: var(--fundo-secundario);
             border-top: 1px solid var(--cinza-escuro);
@@ -822,18 +675,14 @@
             .hero-descricao { font-size: 18px; }
             .hero-text { padding: 40px 20px; }
             .hero-text-container { padding: 40px 0 60px 0; }
-            .live-content { grid-template-columns: 1fr; gap: 50px; }
-            .live-image-placeholder { height: 400px; }
             .titulo-secao { font-size: 36px; }
             .ia-frase { font-size: 28px; }
-            .autoridade-frase { font-size: 24px; }
             .section-padding { padding: 80px 0; }
             .ia-beneficios { grid-template-columns: 1fr; }
-            .autoridade-foto { width: 150px; height: 150px; }
             .portfolio-item { width: 280px; height: 380px; margin: 0 15px; }
             .carousel-container { margin: 40px 0; }
-            .depoimentos-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-            .depoimento-whatsapp { height: 400px; }
+            .autoridade-frase { font-size: 24px; }
+            .autoridade-foto { width: 150px; height: 150px; }
         }
 
         @media (max-width: 480px) {
@@ -843,10 +692,8 @@
             .ia-frase { font-size: 24px; }
             .section-padding { padding: 60px 0; }
             .hero-image-container { height: 450px; }
-            .autoridade-foto { width: 120px; height: 120px; }
             .portfolio-item { width: 250px; height: 350px; margin: 0 10px; }
-            .depoimentos-grid { grid-template-columns: 1fr; }
-            .depoimento-whatsapp { height: 350px; }
+            .autoridade-foto { width: 120px; height: 120px; }
         }
     </style>
 </head>
@@ -857,9 +704,9 @@
             <a href="#home" class="nav-logo">Arthur <span>Martins</span></a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Início</a></li>
-                <li><a href="#live" class="nav-link">Autoridade</a></li>
                 <li><a href="#plataformas" class="nav-link">Mentoria</a></li>
                 <li><a href="#ia" class="nav-link">Inteligência Artificial</a></li>
+                <li><a href="#autoridade" class="nav-link">Sobre o Mentor</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -891,43 +738,13 @@
                     Olá, sou Arthur Martins. <span class="hero-destaque">Estrategista Digital</span>, 
                     <span class="hero-destaque">Especialista</span> e <span class="hero-destaque">Investidor</span>. Operações ao vivo todos os dias, mostrando na prática como analisar o mercado, tomar decisões e aplicar gestão de risco, com conteúdo 100% educacional e gratuito.</p>
                 <div class="hero-cta">
-                    <a href="#live" class="btn-premium btn-hero">Conheça Meu Trabalho</a>
+                    <a href="#plataformas" class="btn-premium btn-hero">Conheça Meu Trabalho</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ======== SEÇÃO LIVE E COMUNIDADE ======== -->
-    <section id="live" class="live-comunidade section-padding fade-in">
-        <div class="container">
-            <div class="live-content">
-                <div class="live-image">
-                    <div class="live-image-placeholder">
-                        <div class="live-badge">IMPORTANTE</div>
-                        <!-- ======== VÍDEO DO YOUTUBE INCORPORADO (VERSÃO CORRIGIDA) ======== -->
-                        <iframe 
-                            src="https://www.youtube.com/embed/zXzZC-n0uLY?autoplay=1&mute=1&loop=1&playlist=zXzZC-n0uLY" 
-                            class="live-whatsapp-video"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="live-text">
-                    <h2 class="titulo-secao">Está preparado pra isso?</h2>
-                    <div class="texto-descritivo">
-                        Tá cansado de perder dinheiro no mercado? Eu não preciso te convencer, eu já tenho resultado. Quem está em busca é você. O que eu faço aqui é ajudar, mostrar o caminho e executar na prática. Quem quer resultado, fica. Quem não quer, segue tentando sozinho.
-                    </div>
-                    <a href="#" class="btn-premium" onclick="event.preventDefault(); handleComunidadeClick();">
-                        Quero aprender agora
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======== SEÇÃO PORTFÓLIO ======== -->
+    <!-- ======== SEÇÃO PORTFÓLIO (MENTORIA) ======== -->
     <section id="plataformas" class="portfolio section-padding fade-in">
         <div class="container">
             <div class="portfolio-header">
@@ -960,7 +777,7 @@
         </div>
     </section>
 
-    <!-- ======== SEÇÃO INTELIGÊNCIA ARTIFICIAL (MOVIDA PARA CÁ) ======== -->
+    <!-- ======== SEÇÃO INTELIGÊNCIA ARTIFICIAL ======== -->
     <section id="ia" class="ia-section section-padding fade-in">
         <div class="container">
             <div class="ia-content">
@@ -986,41 +803,6 @@
                         Aprenda comigo aqui
                     </a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======== SEÇÃO DEPOIMENTOS ======== -->
-    <section id="depoimentos" class="depoimentos section-padding fade-in">
-        <div class="container">
-            <div class="depoimentos-header">
-                <h2 class="titulo-secao">O que dizem na comunidade</h2>
-                <p class="depoimentos-subtitulo">
-                    Veja o que nossos alunos estão falando sobre os resultados obtidos após aplicar nossas estratégias e participar das lives gratuitas.&nbsp;</p>
-            </div>
-
-            <div class="depoimentos-grid">
-                <div class="depoimento-item">
-                    <div class="depoimento-whatsapp">
-                        <img src="./depoimento1.jpg" alt="Depoimento 1">
-                    </div>
-                </div>
-                <div class="depoimento-item">
-                    <div class="depoimento-whatsapp">
-                        <img src="./depoimento2.jpg" alt="Depoimento 2">
-                    </div>
-                </div>
-                <div class="depoimento-item">
-                    <div class="depoimento-whatsapp">
-                        <img src="./depoimento3.jpg" alt="Depoimento 3">
-                    </div>
-                </div>
-            </div>
-
-            <div class="depoimentos-cta">
-                <a href="#" class="btn-premium btn-comunidade" onclick="event.preventDefault(); handleComunidadeClick();">
-                    Fazer Parte da Comunidade
-                </a>
             </div>
         </div>
     </section>
