@@ -1,1 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Alguns links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <h1>
+  Arthur Martins
+  <img src="assets/icons/verified.png" alt="Verificado" class="verified-icon">
+</h1>
+
+    <p>Links oficiais abaixo</p>
+  </div>
+</section>
+
+<!-- NÚMEROS -->
+<section class="bio-numbers-wrapper">
+  <div class="container bio-numbers">
+    <div class="number-item">
+      <strong data-target="300">+300</strong>
+      <span>No Grupo da live</span>
+    </div>
+    <div class="number-item">
+      <strong data-target="100">+100</strong>
+      <span>Projetos Desenvolvido</span>
+    </div>
+    <div class="number-item">
+      <strong>+7</strong>
+      <span>Digitos faturados</span>
+    </div>
+  </div>
+
+  <!-- SETA -->
+  <div class="arrow-wrapper">
+    <button class="hero-arrows" id="scrollDown" aria-label="Descer">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</section>
+
+<!-- LINKS -->
+<main class="bio-container" id="bioLinks">
+  <section class="bio-links">
+
+    <!-- 2 em cima -->
+    <a href="#" class="bio-card" id="openMenu">
+      <img src="assets/buttons/whatsapp.png" alt="WhatsApp">
+    </a>
+
+    <a href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack=" class="bio-card" target="_blank">
+      <img src="assets/buttons/corretora.png" alt="Corretora">
+    </a>
+
+    <!-- 1 central -->
+    <a href="https://www.instagram.com/eumartinsarthur" class="bio-card center" target="_blank">
+      <img src="assets/buttons/instagram.png" alt="Instagram">
+    </a>
+
+    <!-- 2 embaixo -->
+    <a href="https://www.tiktok.com/@eusoumartinsarthur" class="bio-card" target="_blank">
+      <img src="assets/buttons/tiktok.png" alt="TikTok">
+    </a>
+
+    <a href="https://euarthurmartins.com" class="bio-card" target="_blank">
+      <img src="assets/buttons/site.png" alt="Site">
+    </a>
+
+  </section>
+
+  <footer class="bio-footer">
+    © Todos os direitos reservados
+  </footer>
+</main>
+
+<!-- MENU MODAL PREMIUM -->
+<div id="menuModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Menu de Contato</h2>
+
+    <form id="menuForm">
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" placeholder="Seu nome" required>
+
+      <p>Selecione os serviços:</p>
+      <label><input type="checkbox" name="service" value="Fechar uma parceria"> Fechar uma parceria</label>
+      <label><input type="checkbox" name="service" value="Fazer um orçamento"> Fazer um orçamento</label>
+      <label><input type="checkbox" name="service" value="Entrar no grupo da live"> Entrar no grupo da live</label>
+      <label><input type="checkbox" name="service" value="Quero saber mais sobre seus serviços"> Quero saber mais sobre seus serviços</label>
+
+      <label for="obs">Observações:</label>
+      <textarea id="obs" name="obs" placeholder="Escreva algo se quiser..."></textarea>
+
+      <div class="modal-buttons">
+        <button type="submit" class="btn-send">Enviar</button>
+        <button type="button" class="btn-back" id="backBtn">Voltar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* CONTADOR ANIMADO SEM TREMER */
+  const counters = document.querySelectorAll(".bio-numbers strong[data-target]");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = +el.dataset.target;
+        if (!el.classList.contains("counted")) {
+          el.classList.add("counted");
+          let count = 0;
+          const step = Math.max(20, 2000 / target);
+          const interval = setInterval(() => {
+            count++;
+            el.textContent = "+" + count;
+            if (count >= target) clearInterval(interval);
+          }, step);
+        }
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.6 });
+  counters.forEach(c => observer.observe(c));
+
+  /* SCROLL SETA */
+  document.getElementById("scrollDown").addEventListener("click", () => {
+    document.getElementById("bioLinks").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  /* ABRIR MODAL */
+  const modal = document.getElementById("menuModal");
+  const openBtn = document.getElementById("openMenu");
+  const closeBtn = modal.querySelector(".close");
+  const backBtn = document.getElementById("backBtn");
+
+  openBtn.addEventListener("click", e => { e.preventDefault(); modal.style.display = "flex"; });
+  closeBtn.addEventListener("click", () => modal.style.display = "none");
+  backBtn.addEventListener("click", () => { modal.style.display = "none"; window.scrollTo({ top:0, behavior:'smooth' }); });
+  window.addEventListener("click", e => { if(e.target === modal) modal.style.display = "none"; });
+
+  /* ENVIO WHATSAPP */
+  const form = document.getElementById("menuForm");
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const obs = document.getElementById("obs").value;
+    const services = Array.from(document.querySelectorAll('input[name="service"]:checked'))
+                          .map(cb => cb.value)
+                          .join(', ');
+    const message = `Nome: ${name}\nServiços: ${services}\nObservações: ${obs}`;
+    const phone = "+5522997301385";
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
+  });
+
+});
+</script>
+
+</body>
+</html>
 
