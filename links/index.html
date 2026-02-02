@@ -165,38 +165,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
  const modal = document.getElementById("menuModal");
-const modalContent = modal.querySelector(".modal-content");
 const openBtn = document.getElementById("openMenu");
 const closeBtn = modal.querySelector(".close");
 const backBtn = document.getElementById("backBtn");
 
-function openModal() {
-  modal.classList.remove("hide");
-  modal.classList.add("show");
-}
-
-function closeModal() {
-  modal.classList.remove("show");
-  modal.classList.add("hide");
-  setTimeout(() => modal.classList.remove("hide"), 300); // remove a classe hide após a transição
-}
-
-openBtn.addEventListener("click", e => { 
-  e.preventDefault(); 
-  openModal(); 
+openBtn.addEventListener("click", e => {
+  e.preventDefault();
+  modal.style.display = "flex"; // abre o modal
 });
 
-closeBtn.addEventListener("click", closeModal);
-backBtn.addEventListener("click", () => { 
-  closeModal(); 
-  window.scrollTo({ top:0, behavior:'smooth' }); 
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none"; // fecha
 });
 
-window.addEventListener("click", e => { 
-  if(e.target === modal) closeModal(); 
+backBtn.addEventListener("click", () => {
+  modal.style.display = "none"; // fecha
+  window.scrollTo({ top:0, behavior:'smooth' });
 });
 
-
+window.addEventListener("click", e => {
+  if (e.target === modal) modal.style.display = "none"; // fecha ao clicar fora
+});
 
 
   
