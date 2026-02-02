@@ -174,9 +174,28 @@ body { font-family:'Poppins', sans-serif; background:var(--bg); color:var(--text
   .modal-content input[type="text"], .modal-content textarea{ font-size:0.95rem; padding:10px 15px; }
 }
 
+
+
 .verified-icon {
   width: 24px;       /* tamanho do ícone, ajuste se quiser maior ou menor */
   height: 24px;
   margin-left: 8px;  /* espaço entre o nome e o ícone */
   vertical-align: middle; /* alinha o ícone com o texto */
+}
+.modal.show { 
+  display: flex; 
+}
+
+.modal.hide { 
+  display: flex; 
+  opacity: 0; 
+  transition: opacity 0.3s ease; 
+}
+
+.modal.show .modal-content { 
+  animation: popIn 0.4s forwards; 
+}
+
+.modal.hide .modal-content { 
+  animation: popIn 0.4s reverse forwards; 
 }
