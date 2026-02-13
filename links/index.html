@@ -7,14 +7,14 @@
 
   <!-- OPEN GRAPH -->
 <meta property="og:title" content="Links oficiais | Arthur Martins">
-<meta property="og:description" content="Acesse meus links oficiais, redes sociais e principais contatos em um só lugar.">
-<meta property="og:image" content="https://euarthurmartins.com/links/assets/og-image.jpg">
-<meta property="og:url" content="https://euarthurmartins.com/links">
+<meta property="og:description" content="Acesse os links oficiais de Arthur Martins, redes sociais e principais contatos em um só lugar.">
+<meta property="og:image" content="https://euarthurmartins.com/assets/og-image.jpg">
+<meta property="og:url" content="https://euarthurmartins.com">
 <meta property="og:type" content="website">
 
 <!-- Twitter / WhatsApp -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://euarthurmartins.com/links/assets/og-image.jpg">
+<meta name="twitter:image" content="https://euarthurmartins.com/assets/og-image.jpg">
 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@
   <img src="assets/icons/verified.png" alt="Verificado" class="verified-icon">
 </h1>
 
-    <p>Links oficiais abaixo</p>
+    <p>Da Favela para o topo</p>
   </div>
 </section>
 
@@ -42,11 +42,11 @@
 <section class="bio-numbers-wrapper">
   <div class="container bio-numbers">
     <div class="number-item">
-      <strong data-target="300">+300</strong>
+      <strong data-target="150">+150</strong>
       <span>No Grupo da live</span>
     </div>
     <div class="number-item">
-      <strong data-target="100">+100</strong>
+      <strong data-target="50">+50</strong>
       <span>Projetos Desenvolvido</span>
     </div>
     <div class="number-item">
@@ -66,8 +66,10 @@
 </section>
 
 <!-- LINKS -->
-<main class="bio-container" id="bioLinks">
-  <section class="bio-links">
+<!-- 1. NOVA SEÇÃO WRAPPER COM FUNDO FULL-WIDTH -->
+<section class="bio-background-wrapper">
+  <main class="bio-container" id="bioLinks">
+    <section class="bio-links">
 
     <!-- 2 em cima -->
     <div class="bio-card" id="openMenu">
@@ -80,16 +82,16 @@
     </a>
 
     <!-- 1 central -->
-    <a href="https://www.instagram.com/eumartinsarthur" class="bio-card center" target="_blank">
+    <a href="" class="bio-card center" target="_blank">
       <img src="assets/buttons/instagram.png" alt="Instagram">
     </a>
 
     <!-- 2 embaixo -->
-    <a href="https://www.tiktok.com/@eusoumartinsarthur" class="bio-card" target="_blank">
+    <a href="" class="bio-card" target="_blank">
       <img src="assets/buttons/tiktok.png" alt="TikTok">
     </a>
 
-    <a href="https://euarthurmartins.com" class="bio-card" target="_blank">
+    <a href="https://chat.whatsapp.com/KpBgC6fGYWQ3SXY9zz7Lqj" class="bio-card" target="_blank">
       <img src="assets/buttons/site.png" alt="Site">
     </a>
 
@@ -111,10 +113,10 @@
       <input type="text" id="name" name="name" placeholder="Seu nome" required>
 
       <p>Selecione os serviços:</p>
-      <label><input type="checkbox" name="service" value="Fechar uma parceria"> Fechar uma parceria</label>
-      <label><input type="checkbox" name="service" value="Fazer uma mentoria"> Fazer uma mentoria</label>
-      <label><input type="checkbox" name="service" value="Entrar no grupo da live"> Entrar no grupo da live</label>
-      <label><input type="checkbox" name="service" value="Quero saber mais sobre seus serviços"> Quero saber mais sobre seus serviços</label>
+      <label><input type="checkbox" name="service" value="Fazer uma Alavancagem |"> Fazer uma Alavancagem</label>
+      <label><input type="checkbox" name="service" value="Fazer uma mentoria |"> Fazer uma mentoria</label>
+      <label><input type="checkbox" name="service" value="Quero o indicador |"> Quero o Indicador</label>
+      <label><input type="checkbox" name="service" value="Quero saber mais sobre seus serviços |"> Quero saber mais sobre seus serviços</label>
 
       <label for="obs">Observações:</label>
       <textarea id="obs" name="obs" placeholder="Escreva algo se quiser..."></textarea>
@@ -199,7 +201,7 @@ window.addEventListener("click", e => {
                           .map(cb => cb.value)
                           .join(', ');
     const message = `Nome: ${name}\nServiços: ${services}\nObservações: ${obs}`;
-    const phone = "+5522997301385";
+    const phone = "+5522997301385"; // ATENÇÃO: Substitua pelo número de telefone do Danilo trader
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
   });
 
@@ -208,4 +210,3 @@ window.addEventListener("click", e => {
 
 </body>
 </html>
-
