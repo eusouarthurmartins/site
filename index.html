@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Chat de Pesquisa</title>
+    <title>Assistente de Pesquisa</title>
+
+<!-- COLE O TRECHO AQUI EM BAIXO -->
+    <!-- Favicon -->
+    <link rel="icon" href="https://euarthurmartins.com/favicon.ico" type="image/x-icon">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Aprenda a faturar + de 7 Dígitos com a internet">
+    <meta property="og:description" content="Ganhe dinheiro com internet">
+    <meta property="og:image" content="https://euarthurmartins.com/og-image.jpg">
+    <meta property="og:url" content="https://euarthurmartins.com">
+    <meta property="og:type" content="website">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Variáveis CSS para cores */
+        /* Variáveis CSS */
         :root {
-            --bg-dark: #0a1114;
-            --bg-chat: #0f1f1a;
-            --primary-dark: #0d1b1f;
+            --primary-dark: #0a1f1a;
             --primary-green: #005c4b;
             --accent-green: #00ff88;
             --accent-glow: rgba(0, 255, 136, 0.5);
-            --text-primary: #e0f2f1;
-            --text-secondary: #80cbc4;
+            --bg-chat: #0d2a21;
+            --text-primary: #e0f2e9;
+            --text-secondary: #a8c5b8;
             --border-color: rgba(0, 255, 136, 0.2);
-            --gradient-primary: linear-gradient(135deg, #00ff88, #00cc6a);
+            --gradient-primary: linear-gradient(135deg, var(--primary-green), var(--accent-green));
         }
 
         /* Reset e estilos globais */
@@ -28,8 +39,8 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: var(--bg-dark);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark), #061512);
             color: var(--text-primary);
             height: 100vh;
             overflow: hidden;
@@ -76,16 +87,16 @@
             }
         }
 
-        /* Container principal com efeitos */
+        /* Container principal */
         .chat-wrapper {
-            position: relative;
-            z-index: 1;
             width: 100%;
             height: 100%;
-            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         .chat-container {
@@ -93,17 +104,14 @@
             max-width: 500px;
             height: 90vh;
             max-height: 800px;
-            background: rgba(10, 17, 20, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.7),
-                0 0 100px rgba(0, 255, 136, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, var(--bg-chat), #0a2e1a);
+            border-radius: 20px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
-            position: relative;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 100px rgba(0, 255, 136, 0.2);
             border: 1px solid rgba(0, 255, 136, 0.2);
             animation: slideUp 0.6s ease-out;
         }
@@ -208,11 +216,52 @@
             }
         }
 
+        /* AVISO NO TOPO DO CHAT - TEMPORÁRIO */
+        .top-notice {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.15), rgba(255, 152, 0, 0.1));
+            border-bottom: 1px solid rgba(255, 193, 7, 0.3);
+            font-size: 13px;
+            color: var(--text-primary);
+            line-height: 1.4;
+            animation: slideDownNotice 0.6s ease-out;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: all 0.5s ease;
+        }
+
+        .top-notice.hiding {
+            opacity: 0;
+            transform: translateY(-20px);
+            margin-bottom: -50px;
+        }
+
+        .top-notice i {
+            color: #ffc107;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        @keyframes slideDownNotice {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Área de chat */
         .chat-body {
             flex: 1;
             overflow-y: auto;
-            padding: 25px 20px;
+            padding: 20px 20px 25px 20px;
             display: flex;
             flex-direction: column;
             gap: 18px;
@@ -371,44 +420,33 @@
             transform: translateY(-1px) scale(1.02);
         }
 
-        /* Input de WhatsApp com efeitos */
-        .whatsapp-input-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        /* Formulário do WhatsApp */
+        .whatsapp-form {
+            background: linear-gradient(135deg, rgba(0, 92, 75, 0.2), rgba(0, 92, 75, 0.1));
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 15px;
+            padding: 20px;
             margin-top: 15px;
             width: 100%;
+            animation: slideUp 0.5s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .whatsapp-input {
-            width: 100%;
-            padding: 14px 20px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-            border: 2px solid rgba(0, 255, 136, 0.3);
-            border-radius: 25px;
-            color: var(--text-primary);
-            font-size: 15px;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-input:focus {
-            border-color: var(--accent-green);
-            box-shadow: 
-                0 0 20px rgba(0, 255, 136, 0.3),
-                inset 0 0 10px rgba(0, 255, 136, 0.1);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
-        }
-
-        .whatsapp-input::placeholder {
-            color: var(--text-secondary);
+        .form-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--accent-green);
+            text-align: center;
         }
 
         .submit-button {
-            padding: 14px 30px;
+            padding: 14px 28px;
             background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
             border: none;
-            border-radius: 25px;
+            border-radius: 10px;
             color: var(--text-primary);
             font-weight: 700;
             font-size: 16px;
@@ -416,41 +454,60 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            align-self: flex-end;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
         }
 
-        .submit-button::before {
+        .submit-button::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s ease;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.5s ease;
+            transform: translate(-50%, -50%);
         }
 
         .submit-button:hover {
-            transform: translateY(-3px) scale(1.05);
+            transform: translateY(-2px);
             box-shadow: 
                 0 10px 30px rgba(0, 255, 136, 0.4),
-                0 0 30px rgba(0, 255, 136, 0.3);
+                0 0 25px rgba(0, 255, 136, 0.3);
         }
 
-        .submit-button:hover::before {
-            left: 100%;
+        .submit-button:hover::after {
+            width: 300px;
+            height: 300px;
         }
 
         .submit-button:active {
-            transform: translateY(-1px) scale(1.02);
+            transform: translateY(0);
         }
 
-        .submit-button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
+        /* AVISO ESPECÍFICO DO IPHONE/TIKTOK */
+        .iphone-notice {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.15), rgba(255, 193, 7, 0.1));
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 10px;
+            font-size: 12px;
+            color: var(--text-primary);
+            line-height: 1.4;
+            margin-top: 12px;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .iphone-notice i {
+            color: #ffc107;
+            font-size: 14px;
+            flex-shrink: 0;
         }
 
         /* Tela de sucesso com efeitos */
@@ -587,17 +644,18 @@
                 font-size: 16px;
             }
 
+            .top-notice {
+                font-size: 12px;
+                padding: 10px 15px;
+            }
+
             .response-button {
                 padding: 14px 18px;
                 font-size: 14px;
             }
 
-            .whatsapp-input {
-                font-size: 16px; /* Tamanho maior para evitar zoom no iOS */
-            }
-
             .submit-button {
-                padding: 16px 24px;
+                padding: 12px 24px;
                 font-size: 15px;
             }
 
@@ -630,12 +688,8 @@
                 font-size: 13px;
             }
 
-            .whatsapp-input {
-                padding: 12px 18px;
-            }
-
             .submit-button {
-                padding: 14px 22px;
+                padding: 12px 20px;
                 font-size: 14px;
             }
         }
@@ -702,6 +756,12 @@
                 </div>
             </div>
 
+            <!-- AVISO TEMPORÁRIO NO TOPO -->
+            <div class="top-notice" id="topNotice">
+                <i class="fas fa-info-circle"></i>
+                <span><strong>Atenção:</strong> Se estiver no TikTok com iPhone e o WhatsApp não abrir, clique nos 3 pontos (...) e "Abrir no navegador".</span>
+            </div>
+
             <!-- Área de chat -->
             <div class="chat-body" id="chatBody">
                 <!-- As mensagens serão inseridas aqui via JavaScript -->
@@ -726,6 +786,7 @@
         const accessButton = document.getElementById('accessButton');
         const logoImage = document.getElementById('logoImage');
         const logoPlaceholder = document.getElementById('logoPlaceholder');
+        const topNotice = document.getElementById('topNotice');
 
         // Criar partículas de fundo
         function createParticles() {
@@ -758,6 +819,16 @@
             logoImage.src = 'logo.png';
         }
 
+        // Função para esconder o aviso do topo
+        function hideTopNotice() {
+            if (topNotice && !topNotice.classList.contains('hiding')) {
+                topNotice.classList.add('hiding');
+                setTimeout(() => {
+                    topNotice.style.display = 'none';
+                }, 500);
+            }
+        }
+
         // Dados da conversa
         const conversationFlow = [
             {
@@ -781,7 +852,7 @@
                 options: ["1 a 2 horas", "2 a 4 horas", "Mais de 4 horas"]
             },
             {
-                botMessage: "Perfeito! Com base nas suas respostas, posso te enviar um material que explica como começar.",
+                botMessage: "Perfeito! Com base nas suas respostas, preparei algo especial para você.\n\nPara liberar seu acesso imediato, clique no botão abaixo:",
                 isFinal: true
             }
         ];
@@ -789,11 +860,21 @@
         // Estado da conversa
         let currentStep = 0;
         let userResponses = [];
+        let noticeHidden = false;
 
         // Inicialização
         document.addEventListener('DOMContentLoaded', () => {
             createParticles();
             loadLogo();
+            
+            // Esconder o aviso após 10 segundos automaticamente
+            setTimeout(() => {
+                if (!noticeHidden) {
+                    hideTopNotice();
+                    noticeHidden = true;
+                }
+            }, 10000);
+            
             setTimeout(() => {
                 startConversation();
             }, 1500);
@@ -869,6 +950,12 @@
 
         // Lidar com resposta do usuário
         function handleUserResponse(response) {
+            // Esconder o aviso na primeira interação
+            if (!noticeHidden) {
+                hideTopNotice();
+                noticeHidden = true;
+            }
+            
             // Salvar resposta
             userResponses.push(response);
             
@@ -898,9 +985,10 @@
                     // Verificar se é a pergunta final
                     if (conversationFlow[currentStep].isFinal) {
                         showMessage(conversationFlow[currentStep].botMessage, 'bot');
+                        // Mostrar formulário do WhatsApp
                         setTimeout(() => {
-                            showWhatsAppInput();
-                        }, 600);
+                            showWhatsAppForm();
+                        }, 800);
                     } else {
                         showMessage(conversationFlow[currentStep].botMessage, 'bot');
                         setTimeout(() => {
@@ -911,64 +999,39 @@
             }
         }
 
-        // Mostrar campo de input para WhatsApp
-        function showWhatsAppInput() {
-            const inputContainer = document.createElement('div');
-            inputContainer.className = 'whatsapp-input-container';
-            inputContainer.innerHTML = `
-                <input type="text" class="whatsapp-input" id="whatsappInput" placeholder="Digite seu WhatsApp para receber o acesso." maxlength="15">
-                <button class="submit-button" id="submitButton">Receber acesso</button>
+        // Mostrar formulário do WhatsApp (sem input de número)
+        function showWhatsAppForm() {
+            const formContainer = document.createElement('div');
+            formContainer.className = 'whatsapp-form';
+            formContainer.innerHTML = `
+                <div class="form-title">Seu acesso está pronto!</div>
+                <button class="submit-button" id="submitWhatsApp">
+                    <i class="fab fa-whatsapp"></i> Receber acesso
+                </button>
+                <div class="iphone-notice">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span><strong>Atenção usuários de iPhone:</strong> Se estiver no TikTok e o WhatsApp não abrir, clique nos 3 pontos (...) e "Abrir no navegador"</span>
+                </div>
             `;
-            chatBody.appendChild(inputContainer);
-            scrollToBottom();
             
-            // Focar no input
-            setTimeout(() => {
-                document.getElementById('whatsappInput').focus();
-            }, 300);
+            chatBody.appendChild(formContainer);
             
-            // Adicionar evento de submit
-            document.getElementById('submitButton').addEventListener('click', submitWhatsApp);
-            document.getElementById('whatsappInput').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    submitWhatsApp();
-                }
-            });
-        }
-
-        // Enviar WhatsApp
-        function submitWhatsApp() {
-            const whatsappInput = document.getElementById('whatsappInput');
-            const whatsapp = whatsappInput.value.trim();
-            
-            // Validação do número de WhatsApp
-            if (!whatsapp || whatsapp.length < 10) {
-                whatsappInput.style.borderColor = '#ff4444';
-                whatsappInput.style.animation = 'shake 0.5s';
+            // Adicionar evento ao botão
+            const submitButton = document.getElementById('submitWhatsApp');
+            submitButton.addEventListener('click', () => {
+                // Efeito de clique
+                submitButton.style.transform = 'scale(0.95)';
                 setTimeout(() => {
-                    whatsappInput.style.animation = '';
-                    whatsappInput.style.borderColor = '';
-                }, 500);
-                whatsappInput.focus();
-                return;
-            }
-            
-            // Desabilitar botão
-            const submitButton = document.getElementById('submitButton');
-            submitButton.disabled = true;
-            submitButton.textContent = 'Enviando...';
-            submitButton.style.background = 'linear-gradient(135deg, #666, #999)';
-            
-            // Simular envio
-            setTimeout(() => {
-                // Mostrar mensagem do usuário
-                showMessage(whatsapp, 'user');
+                    submitButton.style.transform = '';
+                }, 200);
                 
                 // Mostrar tela de sucesso
                 setTimeout(() => {
                     successScreen.classList.add('active');
-                }, 1000);
-            }, 1500);
+                }, 500);
+            });
+            
+            scrollToBottom();
         }
 
         // Redirecionar para o WhatsApp com o número e mensagem específicos
@@ -1001,27 +1064,7 @@
             });
         }
 
-        // Formatar input de WhatsApp
-        document.addEventListener('input', (e) => {
-            if (e.target && e.target.id === 'whatsappInput') {
-                let value = e.target.value.replace(/\D/g, '');
-                
-                // Aplicar formatação (XX) XXXXX-XXXX
-                if (value.length > 0) {
-                    if (value.length <= 2) {
-                        value = `(${value}`;
-                    } else if (value.length <= 7) {
-                        value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
-                    } else {
-                        value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7, 11)}`;
-                    }
-                }
-                
-                e.target.value = value;
-            }
-        });
-
-        // Adicionar efeito de shake para erros
+        // Adicionar efeito de shake para erros (não será mais usado, mas mantido para referência)
         const style = document.createElement('style');
         style.textContent = `
             @keyframes shake {
