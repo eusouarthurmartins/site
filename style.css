@@ -1,0 +1,262 @@
+:root {
+  --primary-color: #00ff9c;
+  --bg: #0b0b0b;
+  --text: #eaeaea;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Poppins', sans-serif; background:var(--bg); color:var(--text); }
+
+/* CONTAINER */
+.container { width:90%; max-width:1200px; margin:auto; }
+
+/* HERO */
+.hero {
+  background: url("assets/bg-hero-mobile.jpg") center/cover no-repeat;
+  padding: 0; /* removido padding vertical */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* empurra o conteúdo para baixo */
+  height: 300px; /* altura fixa da hero */
+}
+
+@media (min-width:769px) { 
+  .hero { 
+    background-image: url("assets/bg-hero.jpg"); 
+    height: 300px; /* altura para desktop */
+  } 
+}
+
+.hero::after {
+  content:"";
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:60px;
+  background: linear-gradient(to bottom, rgba(11,11,11,0), #0b0b0b);
+}
+
+.hero-content { 
+  text-align: center; 
+  margin-bottom: 20px; /* distância do texto até o contador */
+}
+
+/* NÚMEROS */
+.bio-numbers-wrapper { text-align:center; }
+.bio-numbers {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  max-width:600px;
+  margin:2px auto;
+}
+.number-item strong {
+  display:inline-block;
+  min-width:60px;
+  text-align:center;
+  font-size:34px;
+  color:var(--primary-color);
+}
+.number-item span { font-size:12px; color:#bbb; }
+
+/* SETA */
+.arrow-wrapper { display:flex; justify-content:center; }
+.hero-arrows { background:none; border:none; cursor:pointer; margin:6px 0; }
+.hero-arrows span {
+  width:22px; height:22px;
+  border-right:4px solid var(--primary-color);
+  border-bottom:4px solid var(--primary-color);
+  transform:rotate(45deg);
+  animation:arrow 1.8s infinite; opacity:0;
+}
+.hero-arrows span:nth-child(2){ animation-delay:.25s; }
+.hero-arrows span:nth-child(3){ animation-delay:.5s; }
+@keyframes arrow {0%{opacity:0;transform:translateY(0) rotate(45deg);}50%{opacity:1;}100%{opacity:0;transform:translateY(10px) rotate(45deg);}}
+
+/* LINKS */
+.bio-container { max-width:900px; margin:auto; padding:30px 20px; }
+.bio-links { display:flex; flex-direction:column; gap:18px; align-items:center; }
+@media (min-width:769px){
+  .bio-links { display:grid; grid-template-columns:repeat(2,260px); justify-content:center; gap:26px; }
+  .bio-card.center{ grid-column:1/-1; justify-self:center; }
+}
+
+/* BOTÕES PNG TRANSPARENTES SEM LUZ */
+.bio-card{ display:block; cursor:pointer; }
+.bio-card img {
+  width:100%;
+  display:block;
+  transition: transform 0.3s ease;
+}
+.bio-card:hover img {
+  transform: scale(1.08); /* sutil hover apenas */
+}
+
+/* FOOTER */
+.bio-footer{ text-align:center; font-size:12px; color:#777; margin-top:30px; }
+
+/* ===== MODAL PREMIUM ===== */
+.modal { 
+  display: none; 
+  position: fixed; 
+  z-index: 9999; 
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background: rgba(0,0,0,0.95); /* fundo escuro */
+  justify-content: center; 
+  align-items: center; 
+  padding: 15px; 
+}
+
+
+
+
+/* ENTRADA DE CAMPOS INDIVIDUAL */
+.modal-content form > * { opacity:0; transform:translateY(15px); animation:fadeSlide 0.5s forwards; }
+.modal-content form > *:nth-child(1){ animation-delay:0.1s; }
+.modal-content form > *:nth-child(2){ animation-delay:0.25s; }
+.modal-content form > *:nth-child(3){ animation-delay:0.35s; }
+.modal-content form > *:nth-child(4){ animation-delay:0.45s; }
+.modal-content form > *:nth-child(5){ animation-delay:0.55s; }
+.modal-content form > *:nth-child(6){ animation-delay:0.65s; }
+.modal-content form > *:nth-child(7){ animation-delay:0.75s; }
+.modal-content form > *:nth-child(8){ animation-delay:0.85s; }
+
+@keyframes fadeSlide{ to{ opacity:1; transform:translateY(0); } }
+@keyframes popIn{ 0%{transform:translateY(-50px) scale(0.9); opacity:0;} 60%{transform:translateY(10px) scale(1.05); opacity:1;} 100%{transform:translateY(0) scale(1);} }
+@keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
+
+.modal-content h2{ text-align:center; margin-top:0; margin-bottom:25px; font-size:1.9rem; }
+.modal-content label{ display:block; margin:12px 0 6px; font-size:1rem; }
+.modal-content input[type="text"], .modal-content textarea{
+  width:100%; padding:12px 18px; border-radius:12px; border:none; margin-bottom:18px; font-size:1rem; background:#222; color:#fff;
+}
+.modal-content textarea{ resize:none; height:90px; }
+.modal-content input[type="checkbox"]{ margin-right:10px; transform:scale(1.2); transition: transform 0.2s; }
+.modal-content input[type="checkbox"]:hover{ transform:scale(1.4); }
+
+/* BOTÕES MODAL COM HOVER */
+.modal-buttons{ display:flex; flex-direction:row; justify-content:space-between; margin-top:25px; gap:10px; flex-wrap:wrap; }
+.btn-send, .btn-back{
+  flex:1;
+  background:linear-gradient(145deg,var(--primary-color),#00aaff);
+  border:none;
+  padding:13px 28px;
+  color:#fff;
+  font-weight:700;
+  font-size:1rem;
+  border-radius:14px;
+  cursor:pointer;
+  box-shadow:0 6px 25px rgba(0,0,0,0.6);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+.btn-send:hover, .btn-back:hover{
+  transform: scale(1.05);
+  box-shadow: 0 16px 38px rgba(0,255,200,0.6);
+  filter: drop-shadow(0 0 10px var(--primary-color));
+}
+
+/* FECHAR */
+.close{ position:absolute; top:18px; right:22px; font-size:2rem; font-weight:bold; cursor:pointer; color:#fff; transition:color 0.2s; }
+.close:hover{ color:var(--primary-color); }
+
+/* RESPONSIVO MOBILE */
+@media(max-width:480px){
+  .modal-content{ padding:20px 15px; width:100%; max-height:95vh; }
+  .modal-content h2{ font-size:1.6rem; }
+  .modal-buttons{ flex-direction:column; gap:12px; }
+  .btn-send, .btn-back{ width:100%; }
+  .modal-content input[type="text"], .modal-content textarea{ font-size:0.95rem; padding:10px 15px; }
+}
+
+
+
+.verified-icon {
+  width: 24px;       /* tamanho do ícone, ajuste se quiser maior ou menor */
+  height: 24px;
+  margin-left: 8px;  /* espaço entre o nome e o ícone */
+  vertical-align: middle; /* alinha o ícone com o texto */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =======================================
+   FUNDO FULL-WIDTH NA SEÇÃO DOS BOTÕES (COM TRANSIÇÃO NO TOPO)
+   ======================================= */
+
+/* 1. Aplica o fundo na nova wrapper */
+.bio-background-wrapper {
+  position: relative;
+  background-image: url('assets/fundo-botoes.jpg'); /* <-- SUA IMAGEM AQUI */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 50px 20px;
+}
+
+/* 2. A sobreposição escura semi-transparente */
+.bio-background-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(11, 11, 11, 0.85); /* Ajuste a opacidade se quiser */
+  z-index: 1;
+}
+
+/* 3. O gradiente de transição AGORA NO TOPO */
+.bio-background-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0; /* <-- MUDADO: Agora é no topo */
+  left: 0;
+  width: 100%;
+  height: 60px; /* Altura do gradiente */
+  /* <-- MUDADO: A direção do gradiente foi invertida */
+  background: linear-gradient(to bottom, #0b0b0b, rgba(11, 11, 11, 0));
+  z-index: 2; /* Fica por cima da sobreposição escura */
+}
+
+/* 4. Garante que os botões fiquem por cima de tudo */
+.bio-background-wrapper .bio-card {
+  position: relative;
+  z-index: 3; /* Aumentado para ficar acima do gradiente */
+}
+
+/* 5. (Opcional) Ajuste para o footer não ficar colado */
+.bio-footer {
+  margin-top: 30px;
+}
