@@ -1,1117 +1,211 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Assistente de Pesquisa</title>
-
-<!-- COLE O TRECHO AQUI EM BAIXO -->
-    <!-- Favicon -->
-    <link rel="icon" href="https://euarthurmartins.com/favicon.ico" type="image/x-icon">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Aprenda a faturar + de 7 Dígitos com a internet">
-    <meta property="og:description" content="Ganhe dinheiro com internet">
-    <meta property="og:image" content="https://euarthurmartins.com/og-image.jpg">
-    <meta property="og:url" content="https://euarthurmartins.com">
-    <meta property="og:type" content="website">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Variáveis CSS */
-        :root {
-            --primary-dark: #0a1f1a;
-            --primary-green: #005c4b;
-            --accent-green: #00ff88;
-            --accent-glow: rgba(0, 255, 136, 0.5);
-            --bg-chat: #0d2a21;
-            --text-primary: #e0f2e9;
-            --text-secondary: #a8c5b8;
-            --border-color: rgba(0, 255, 136, 0.2);
-            --gradient-primary: linear-gradient(135deg, var(--primary-green), var(--accent-green));
-        }
-
-        /* Reset e estilos globais */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, var(--primary-dark), #061512);
-            color: var(--text-primary);
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Partículas de fundo */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 0;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--accent-green);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: float 20s infinite linear;
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px);
-                opacity: 0;
-            }
-        }
-
-        /* Container principal */
-        .chat-wrapper {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .chat-container {
-            width: 100%;
-            max-width: 500px;
-            height: 90vh;
-            max-height: 800px;
-            background: linear-gradient(135deg, var(--bg-chat), #0a2e1a);
-            border-radius: 20px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.5),
-                0 0 100px rgba(0, 255, 136, 0.2);
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            animation: slideUp 0.6s ease-out;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Header com logotipo */
-        .chat-header {
-            background: linear-gradient(135deg, var(--primary-dark), #0f1f1a);
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .chat-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% {
-                left: -100%;
-            }
-            100% {
-                left: 100%;
-            }
-        }
-
-        .logo-container {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            background: var(--gradient-primary);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
-        }
-
-        .logo-placeholder {
-            color: white;
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .header-info {
-            flex: 1;
-        }
-
-        .header-name {
-            font-weight: 700;
-            font-size: 18px;
-            margin-bottom: 4px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .header-status {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            color: var(--accent-green);
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--accent-green);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-green);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 0.7;
-            }
-        }
-
-        /* AVISO NO TOPO DO CHAT - TEMPORÁRIO */
-        .top-notice {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 20px;
-            background: linear-gradient(135deg, rgba(255, 193, 7, 0.15), rgba(255, 152, 0, 0.1));
-            border-bottom: 1px solid rgba(255, 193, 7, 0.3);
-            font-size: 13px;
-            color: var(--text-primary);
-            line-height: 1.4;
-            animation: slideDownNotice 0.6s ease-out;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            transition: all 0.5s ease;
-        }
-
-        .top-notice.hiding {
-            opacity: 0;
-            transform: translateY(-20px);
-            margin-bottom: -50px;
-        }
-
-        .top-notice i {
-            color: #ffc107;
-            font-size: 16px;
-            flex-shrink: 0;
-        }
-
-        @keyframes slideDownNotice {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Área de chat */
-        .chat-body {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px 20px 25px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            position: relative;
-        }
-
-        /* Estilo da barra de rolagem customizada */
-        .chat-body::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .chat-body::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .chat-body::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--accent-green), var(--primary-green));
-            border-radius: 3px;
-        }
-
-        /* Mensagens com efeitos aprimorados */
-        .message {
-            max-width: 75%;
-            padding: 14px 18px;
-            border-radius: 20px;
-            position: relative;
-            animation: messageSlide 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            transition: transform 0.2s ease;
-            word-wrap: break-word;
-        }
-
-        .message:hover {
-            transform: scale(1.02);
-        }
-
-        @keyframes messageSlide {
-            from {
-                opacity: 0;
-                transform: translateY(20px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .message.bot {
-            background: linear-gradient(135deg, rgba(30, 45, 51, 0.9), rgba(30, 45, 51, 0.7));
-            align-self: flex-start;
-            border-bottom-left-radius: 8px;
-            box-shadow: 
-                0 4px 15px rgba(0, 0, 0, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
-
-        .message.user {
-            background: linear-gradient(135deg, rgba(0, 92, 75, 0.9), rgba(0, 92, 75, 0.7));
-            align-self: flex-end;
-            border-bottom-right-radius: 8px;
-            box-shadow: 
-                0 4px 15px rgba(0, 255, 136, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
-
-        /* Animação de digitação melhorada */
-        .typing-indicator {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 16px 20px;
-            background: linear-gradient(135deg, rgba(30, 45, 51, 0.9), rgba(30, 45, 51, 0.7));
-            border-radius: 20px;
-            border-bottom-left-radius: 8px;
-            width: fit-content;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .typing-dot {
-            width: 10px;
-            height: 10px;
-            background: var(--accent-green);
-            border-radius: 50%;
-            animation: typingBounce 1.4s infinite;
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        .typing-dot:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .typing-dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes typingBounce {
-            0%, 60%, 100% {
-                transform: translateY(0) scale(1);
-                opacity: 0.7;
-            }
-            30% {
-                transform: translateY(-12px) scale(1.2);
-                opacity: 1;
-            }
-        }
-
-        /* Botões de resposta com efeitos */
-        .response-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 15px;
-            width: 100%;
-        }
-
-        .response-button {
-            padding: 12px 20px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            border-radius: 25px;
-            color: var(--text-primary);
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 14px;
-            font-weight: 500;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .response-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, var(--accent-glow), transparent);
-            transition: all 0.5s ease;
-            transform: translate(-50%, -50%);
-        }
-
-        .response-button:hover {
-            background: linear-gradient(135deg, rgba(0, 255, 136, 0.2), rgba(0, 255, 136, 0.1));
-            border-color: var(--accent-green);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 
-                0 8px 25px rgba(0, 255, 136, 0.3),
-                0 0 20px rgba(0, 255, 136, 0.2);
-        }
-
-        .response-button:hover::before {
-            width: 100%;
-            height: 100%;
-        }
-
-        .response-button:active {
-            transform: translateY(-1px) scale(1.02);
-        }
-
-        /* Formulário do WhatsApp */
-        .whatsapp-form {
-            background: linear-gradient(135deg, rgba(0, 92, 75, 0.2), rgba(0, 92, 75, 0.1));
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 15px;
-            width: 100%;
-            animation: slideUp 0.5s ease-out;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .form-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--accent-green);
-            text-align: center;
-        }
-
-        .submit-button {
-            padding: 14px 28px;
-            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
-            border: none;
-            border-radius: 10px;
-            color: var(--text-primary);
-            font-weight: 700;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            white-space: nowrap;
-        }
-
-        .submit-button::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
-            transition: all 0.5s ease;
-            transform: translate(-50%, -50%);
-        }
-
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 
-                0 10px 30px rgba(0, 255, 136, 0.4),
-                0 0 25px rgba(0, 255, 136, 0.3);
-        }
-
-        .submit-button:hover::after {
-            width: 300px;
-            height: 300px;
-        }
-
-        .submit-button:active {
-            transform: translateY(0);
-        }
-
-        /* AVISO ESPECÍFICO DO IPHONE/TIKTOK */
-        .iphone-notice {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 15px;
-            background: linear-gradient(135deg, rgba(255, 152, 0, 0.15), rgba(255, 193, 7, 0.1));
-            border: 1px solid rgba(255, 193, 7, 0.3);
-            border-radius: 10px;
-            font-size: 12px;
-            color: var(--text-primary);
-            line-height: 1.4;
-            margin-top: 12px;
-            animation: slideUp 0.5s ease-out;
-        }
-
-        .iphone-notice i {
-            color: #ffc107;
-            font-size: 14px;
-            flex-shrink: 0;
-        }
-
-        /* Tela de sucesso com efeitos */
-        .success-screen {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--bg-chat), rgba(10, 46, 26, 0.95));
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .success-screen.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .success-icon {
-            font-size: 80px;
-            color: var(--accent-green);
-            margin-bottom: 25px;
-            animation: successPulse 1s ease-out;
-            text-shadow: 0 0 30px var(--accent-glow);
-        }
-
-        @keyframes successPulse {
-            0% {
-                transform: scale(0) rotate(0deg);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.2) rotate(180deg);
-            }
-            100% {
-                transform: scale(1) rotate(360deg);
-                opacity: 1;
-            }
-        }
-
-        .success-message {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-align: center;
-            background: linear-gradient(135deg, var(--text-primary), var(--accent-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .success-submessage {
-            font-size: 16px;
-            color: var(--text-secondary);
-            margin-bottom: 35px;
-            text-align: center;
-        }
-
-        .success-button {
-            padding: 16px 40px;
-            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
-            border: none;
-            border-radius: 30px;
-            color: var(--text-primary);
-            font-weight: 700;
-            font-size: 17px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .success-button::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
-            transition: all 0.5s ease;
-            transform: translate(-50%, -50%);
-        }
-
-        .success-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 
-                0 15px 40px rgba(0, 255, 136, 0.5),
-                0 0 40px rgba(0, 255, 136, 0.3);
-        }
-
-        .success-button:hover::after {
-            width: 300px;
-            height: 300px;
-        }
-
-        /* Responsividade aprimorada */
-        @media (max-width: 768px) {
-            .chat-wrapper {
-                padding: 0;
-            }
-
-            .chat-container {
-                height: 100vh;
-                max-height: 100vh;
-                border-radius: 0;
-                box-shadow: none;
-                max-width: 100%;
-            }
-
-            .message {
-                max-width: 85%;
-            }
-
-            .chat-header {
-                padding: 15px;
-            }
-
-            .logo-container {
-                width: 45px;
-                height: 45px;
-            }
-
-            .header-name {
-                font-size: 16px;
-            }
-
-            .top-notice {
-                font-size: 12px;
-                padding: 10px 15px;
-            }
-
-            .response-button {
-                padding: 14px 18px;
-                font-size: 14px;
-            }
-
-            .submit-button {
-                padding: 12px 24px;
-                font-size: 15px;
-            }
-
-            .success-message {
-                font-size: 22px;
-            }
-
-            .success-submessage {
-                font-size: 15px;
-            }
-
-            .success-button {
-                padding: 14px 30px;
-                font-size: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .chat-body {
-                padding: 20px 15px;
-            }
-
-            .message {
-                max-width: 90%;
-                padding: 12px 15px;
-            }
-
-            .response-button {
-                padding: 12px 16px;
-                font-size: 13px;
-            }
-
-            .submit-button {
-                padding: 12px 20px;
-                font-size: 14px;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .chat-container {
-                max-width: 600px;
-                max-height: 850px;
-            }
-        }
-
-        /* Efeito de brilho no hover do container */
-        .chat-container::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--accent-green), transparent, var(--primary-green));
-            border-radius: 24px;
-            opacity: 0;
-            z-index: -1;
-            transition: opacity 0.3s ease;
-            animation: borderRotate 3s linear infinite;
-        }
-
-        @keyframes borderRotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .chat-container:hover::before {
-            opacity: 0.3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Arthur Trader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- OPEN GRAPH -->
+<meta property="og:title" content="Links oficiais | Arthur Trader">
+<meta property="og:description" content="Acesse os links oficiais de Arthur Trader, redes sociais e principais contatos em um só lugar.">
+<meta property="og:image" content="https://euarthurmartins.com/assets/og-image.jpg">
+<meta property="og:url" content="https://euarthurmartins.com">
+<meta property="og:type" content="website">
+
+<!-- Twitter / WhatsApp -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://euarthurmartins.com/assets/og-image.jpg">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Partículas de fundo -->
-    <div class="particles" id="particles"></div>
 
-    <!-- Container principal -->
-    <div class="chat-wrapper">
-        <div class="chat-container">
-            <!-- Header com logotipo -->
-            <div class="chat-header">
-                <div class="logo-container">
-                    <!-- Substitua este placeholder pelo seu logotipo -->
-                    <img src="logo.png" alt="Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: none;" id="logoImage">
-                    <div class="logo-placeholder" id="logoPlaceholder">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                </div>
-                <div class="header-info">
-                    <div class="header-name">Assistente de Pesquisa</div>
-                    <div class="header-status">
-                        <div class="status-dot"></div>
-                        <span>Online agora</span>
-                    </div>
-                </div>
-            </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <h1>
+  Arthur Trader
+  <img src="assets/icons/verified.png" alt="Verificado" class="verified-icon">
+</h1>
 
-            <!-- AVISO TEMPORÁRIO NO TOPO -->
-            <div class="top-notice" id="topNotice">
-                <i class="fas fa-info-circle"></i>
-                <span><strong>Atenção:</strong> Se estiver no TikTok com iPhone e o WhatsApp não abrir, clique nos 3 pontos (...) e "Abrir no navegador".</span>
-            </div>
+    <p>Da Favela para o topo</p>
+  </div>
+</section>
 
-            <!-- Área de chat -->
-            <div class="chat-body" id="chatBody">
-                <!-- As mensagens serão inseridas aqui via JavaScript -->
-            </div>
-
-            <!-- Tela de sucesso -->
-            <div class="success-screen" id="successScreen">
-                <div class="success-icon">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <div class="success-message">Perfeito!</div>
-                <div class="success-submessage">Seu acesso está sendo preparado.</div>
-                <button class="success-button" id="accessButton">Acessar agora</button>
-            </div>
-        </div>
+<!-- NÚMEROS -->
+<section class="bio-numbers-wrapper">
+  <div class="container bio-numbers">
+    <div class="number-item">
+      <strong data-target="150">+150</strong>
+      <span>No Grupo da live</span>
     </div>
+    <div class="number-item">
+      <strong data-target="50">+50</strong>
+      <span>Projetos Desenvolvidos</span>
+    </div>
+    <div class="number-item">
+      <strong>+8</strong>
+      <span>Digitos faturados</span>
+    </div>
+  </div>
 
-    <script>
-        // Elementos do DOM
-        const chatBody = document.getElementById('chatBody');
-        const successScreen = document.getElementById('successScreen');
-        const accessButton = document.getElementById('accessButton');
-        const logoImage = document.getElementById('logoImage');
-        const logoPlaceholder = document.getElementById('logoPlaceholder');
-        const topNotice = document.getElementById('topNotice');
+  <!-- SETA -->
+  <div class="arrow-wrapper">
+    <button class="hero-arrows" id="scrollDown" aria-label="Descer">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</section>
 
-        // Criar partículas de fundo
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-                particlesContainer.appendChild(particle);
-            }
+<!-- LINKS -->
+<!-- 1. NOVA SEÇÃO WRAPPER COM FUNDO FULL-WIDTH -->
+<section class="bio-background-wrapper">
+  <main class="bio-container" id="bioLinks">
+    <section class="bio-links">
+
+    <!-- 2 em cima -->
+    <div class="bio-card" id="openMenu">
+  <img src="assets/buttons/whatsapp.png" alt="WhatsApp">
+</div>
+
+
+    <a href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack=" class="bio-card" target="_blank">
+      <img src="assets/buttons/corretora.png" alt="Corretora">
+    </a>
+
+    <!-- 1 central -->
+    <a href="https://www.instagram.com/eusoumartinsarthur" class="bio-card center" target="_blank">
+      <img src="assets/buttons/instagram.png" alt="Instagram">
+    </a>
+
+    <!-- 2 embaixo -->
+    <a href="https://www.tiktok.com/@eumartinsarthur?is_from_webapp=1&sender_device=pc" class="bio-card" target="_blank">
+      <img src="assets/buttons/tiktok.png" alt="TikTok">
+    </a>
+
+    <a href="https://www.youtube.com/channel/UCgBj1Oea0IRNhSaYKIQ0w1g" class="bio-card" target="_blank">
+      <img src="assets/buttons/site.png" alt="Site">
+    </a>
+
+  </section>
+
+  <footer class="bio-footer">
+    © Todos os direitos reservados
+  </footer>
+</main>
+
+<!-- MENU MODAL PREMIUM -->
+<div id="menuModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Menu de Contato</h2>
+
+    <form id="menuForm">
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" placeholder="Seu nome" required>
+
+      <p>Selecione os serviços:</p>
+      <label><input type="checkbox" name="service" value="Fazer uma Alavancagem |"> Fazer uma Alavancagem</label>
+      
+     
+
+      <label for="obs">Observações:</label>
+      <textarea id="obs" name="obs" placeholder="Escreva algo se quiser..."></textarea>
+
+      <div class="modal-buttons">
+        <button type="submit" class="btn-send">Enviar</button>
+        <button type="button" class="btn-back" id="backBtn">Voltar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* CONTADOR ANIMADO SEM TREMER */
+  const counters = document.querySelectorAll(".bio-numbers strong[data-target]");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = +el.dataset.target;
+        if (!el.classList.contains("counted")) {
+          el.classList.add("counted");
+          let count = 0;
+          const step = Math.max(20, 2000 / target);
+          const interval = setInterval(() => {
+            count++;
+            el.textContent = "+" + count;
+            if (count >= target) clearInterval(interval);
+          }, step);
         }
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.6 });
+  counters.forEach(c => observer.observe(c));
 
-        // Carregar logotipo
-        function loadLogo() {
-            logoImage.onerror = function() {
-                logoPlaceholder.style.display = 'flex';
-                logoImage.style.display = 'none';
-            };
-            
-            logoImage.onload = function() {
-                logoPlaceholder.style.display = 'none';
-                logoImage.style.display = 'block';
-            };
-            
-            // Tenta carregar o logotipo
-            logoImage.src = 'logo.png';
-        }
-
-        // Função para esconder o aviso do topo
-        function hideTopNotice() {
-            if (topNotice && !topNotice.classList.contains('hiding')) {
-                topNotice.classList.add('hiding');
-                setTimeout(() => {
-                    topNotice.style.display = 'none';
-                }, 500);
-            }
-        }
-
-        // Dados da conversa (VERSÃO OTIMIZADA)
-const conversationFlow = [
-    {
-        botMessage: "Fala! 👋\n\nDeixa eu te perguntar uma coisa rápida...\n\nVocê também quer começar a ganhar dinheiro de casa, mas ainda não encontrou o caminho certo?",
-        options: ["Sim", "Com certeza"]
-    },
-    {
-        botMessage: "Hoje, em qual situação você se encontra em relação a ganhar dinheiro online?",
-        options: [
-            "Sim, já tentei e não tive resultado",
-            "Estou começando agora",
-            "Nunca tentei"
-        ]
-    },
-    {
-        botMessage: "Qual dessas opções mais faz sentido pra você hoje?",
-        options: [
-            "Trabalhar como afiliado",
-            "Aprender a operar no mercado financeiro",
-            "Criar meu próprio negócio digital"
-        ]
-    },
-    {
-        botMessage: "Me diz uma coisa...\n\nSe você tivesse o método certo nas mãos, quanto gostaria de ganhar por mês?",
-        options: [
-            "R$2.000 a R$5.000",
-            "R$5.000 a R$10.000",
-            "Mais de R$10.000"
-        ]
-    },
-    {
-        botMessage: "E quanto tempo você consegue dedicar por dia pra isso?",
-        options: [
-            "1 a 2 horas",
-            "2 a 4 horas",
-            "Mais de 4 horas"
-        ]
-    },
+  /* SCROLL SETA */
+  document.getElementById("scrollDown").addEventListener("click", () => {
+    document.getElementById("bioLinks").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 
 
-    // FECHAMENTO MAIS FORTE
-    {
-        botMessage: "Perfeito 👇\n\nCom base nas suas respostas, eu separei um acesso com estratégias que estão funcionando HOJE. \n\nClique abaixo pra liberar seu acesso agora:",
-        isFinal: true
-    }
-];
 
-        // Estado da conversa
-        let currentStep = 0;
-        let userResponses = [];
-        let noticeHidden = false;
 
-        // Inicialização
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            loadLogo();
-            
-            // Esconder o aviso após 10 segundos automaticamente
-            setTimeout(() => {
-                if (!noticeHidden) {
-                    hideTopNotice();
-                    noticeHidden = true;
-                }
-            }, 10000);
-            
-            setTimeout(() => {
-                startConversation();
-            }, 1500);
-        });
 
-        // Função para iniciar a conversa
-        function startConversation() {
-            showTypingIndicator();
-            setTimeout(() => {
-                hideTypingIndicator();
-                showMessage(conversationFlow[0].botMessage, 'bot');
-                setTimeout(() => {
-                    showResponseButtons(conversationFlow[0].options);
-                }, 600);
-            }, 1800);
-        }
 
-        // Mostrar indicador de digitação
-        function showTypingIndicator() {
-            const typingIndicator = document.createElement('div');
-            typingIndicator.className = 'typing-indicator';
-            typingIndicator.id = 'typingIndicator';
-            typingIndicator.innerHTML = `
-                <div class="typing-dot"></div>
-                <div class="typing-dot"></div>
-                <div class="typing-dot"></div>
-            `;
-            chatBody.appendChild(typingIndicator);
-            scrollToBottom();
-        }
+  
+ const modal = document.getElementById("menuModal");
+const openBtn = document.getElementById("openMenu");
+const closeBtn = modal.querySelector(".close");
+const backBtn = document.getElementById("backBtn");
 
-        // Esconder indicador de digitação
-        function hideTypingIndicator() {
-            const typingIndicator = document.getElementById('typingIndicator');
-            if (typingIndicator) {
-                typingIndicator.remove();
-            }
-        }
+openBtn.addEventListener("click", e => {
+  e.preventDefault();
+  modal.style.display = "flex"; // abre o modal
+});
 
-        // Mostrar mensagem com efeito
-        function showMessage(text, sender) {
-            const message = document.createElement('div');
-            message.className = `message ${sender}`;
-            message.textContent = text;
-            chatBody.appendChild(message);
-            scrollToBottom();
-            
-            // Adicionar efeito de brilho temporário
-            setTimeout(() => {
-                message.style.boxShadow = sender === 'user' 
-                    ? '0 4px 20px rgba(0, 255, 136, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
-                    : '0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)';
-            }, 100);
-        }
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none"; // fecha
+});
 
-        // Mostrar botões de resposta
-        function showResponseButtons(options) {
-            const buttonsContainer = document.createElement('div');
-            buttonsContainer.className = 'response-buttons';
-            
-            options.forEach((option, index) => {
-                const button = document.createElement('button');
-                button.className = 'response-button';
-                button.textContent = option;
-                button.style.animationDelay = `${index * 0.1}s`;
-                button.addEventListener('click', () => handleUserResponse(option));
-                buttonsContainer.appendChild(button);
-            });
-            
-            chatBody.appendChild(buttonsContainer);
-            scrollToBottom();
-        }
+backBtn.addEventListener("click", () => {
+  modal.style.display = "none"; // fecha
+  window.scrollTo({ top:0, behavior:'smooth' });
+});
 
-        // Lidar com resposta do usuário
-        function handleUserResponse(response) {
-            // Esconder o aviso na primeira interação
-            if (!noticeHidden) {
-                hideTopNotice();
-                noticeHidden = true;
-            }
-            
-            // Salvar resposta
-            userResponses.push(response);
-            
-            // Mostrar resposta do usuário
-            showMessage(response, 'user');
-            
-            // Remover botões de resposta
-            const buttonsContainer = document.querySelector('.response-buttons');
-            if (buttonsContainer) {
-                buttonsContainer.style.opacity = '0';
-                buttonsContainer.style.transform = 'scale(0.8)';
-                setTimeout(() => buttonsContainer.remove(), 300);
-            }
-            
-            // Avançar para o próximo passo
-            currentStep++;
-            
-            // Verificar se é o último passo
-            if (currentStep < conversationFlow.length) {
-                // Mostrar indicador de digitação
-                showTypingIndicator();
-                
-                // Simular tempo de digitação
-                setTimeout(() => {
-                    hideTypingIndicator();
-                    
-                    // Verificar se é a pergunta final
-                    if (conversationFlow[currentStep].isFinal) {
-                        showMessage(conversationFlow[currentStep].botMessage, 'bot');
-                        // Mostrar formulário do WhatsApp
-                        setTimeout(() => {
-                            showWhatsAppForm();
-                        }, 800);
-                    } else {
-                        showMessage(conversationFlow[currentStep].botMessage, 'bot');
-                        setTimeout(() => {
-                            showResponseButtons(conversationFlow[currentStep].options);
-                        }, 600);
-                    }
-                }, 1200 + Math.random() * 800);
-            }
-        }
+window.addEventListener("click", e => {
+  if (e.target === modal) modal.style.display = "none"; // fecha ao clicar fora
+});
 
-        // Mostrar formulário do WhatsApp (sem input de número)
-        function showWhatsAppForm() {
-            const formContainer = document.createElement('div');
-            formContainer.className = 'whatsapp-form';
-            formContainer.innerHTML = `
-                <div class="form-title">Seu acesso está pronto!</div>
-                <button class="submit-button" id="submitWhatsApp">
-                    <i class="fab fa-whatsapp"></i> Receber acesso
-                </button>
-                <div class="iphone-notice">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <span><strong>Atenção usuários de iPhone:</strong> Se estiver no TikTok e o WhatsApp não abrir, clique nos 3 pontos (...) e "Abrir no navegador"</span>
-                </div>
-            `;
-            
-            chatBody.appendChild(formContainer);
-            
-            // Adicionar evento ao botão
-            const submitButton = document.getElementById('submitWhatsApp');
-            submitButton.addEventListener('click', () => {
-                // Efeito de clique
-                submitButton.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    submitButton.style.transform = '';
-                }, 200);
-                
-                // Mostrar tela de sucesso
-                setTimeout(() => {
-                    successScreen.classList.add('active');
-                }, 500);
-            });
-            
-            scrollToBottom();
-        }
 
-        // Redirecionar para o WhatsApp com o número e mensagem específicos
-        accessButton.addEventListener('click', () => {
-            // Número e mensagem para o WhatsApp
-            const phoneNumber = '5522997301385'; // Formato internacional (55 + DDD + número)
-            const respostasFormatadas = `
-✅ Nova Pesquisa Respondida:
+  
+  /* ENVIO WHATSAPP */
+  const form = document.getElementById("menuForm");
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const obs = document.getElementById("obs").value;
+    const services = Array.from(document.querySelectorAll('input[name="service"]:checked'))
+                          .map(cb => cb.value)
+                          .join(', ');
+    const message = `Nome: ${name}\nServiços: ${services}\nObservações: ${obs}`;
+    const phone = "+5522997301385"; // ATENÇÃO: Substitua pelo número de telefone do Danilo trader
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
+  });
 
-1️⃣ Interesse:
-${userResponses[0]}
+});
+</script>
 
-2️⃣ Situação atual:
-${userResponses[1]}
-
-3️⃣ Objetivo:
-${userResponses[2]}
-
-4️⃣ Meta mensal:
-${userResponses[3]}
-
-5️⃣ Tempo disponível:
-${userResponses[4]}
-`;
-
-const message = respostasFormatadas;
-            
-            // Codificar a mensagem para URL
-            const encodedMessage = encodeURIComponent(message);
-            
-            // Criar URL do WhatsApp
-            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-            
-            // Redirecionar para o WhatsApp
-            window.location.href = whatsappURL;
-            
-            // Efeito de clique visual
-            accessButton.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                accessButton.style.transform = '';
-            }, 200);
-        });
-
-        // Função para rolar para o final do chat
-        function scrollToBottom() {
-            chatBody.scrollTo({
-                top: chatBody.scrollHeight,
-                behavior: 'smooth'
-            });
-        }
-
-        // Adicionar efeito de shake para erros (não será mais usado, mas mantido para referência)
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes shake {
-                0%, 100% { transform: translateX(0); }
-                10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-                20%, 40%, 60%, 80% { transform: translateX(5px); }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
 </body>
 </html>
