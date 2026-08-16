@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lançamento em Breve | 01 do Game</title>
+    
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset total para esta página específica */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #050505;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow-x: hidden;
+            padding: 2rem 1rem;
+        }
+
+        /* Container Centralizado */
+        .launch-wrapper {
+            position: relative;
+            z-index: 2;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        /* Seta de Voltar */
+        .back-btn {
+            position: fixed;
+            top: 1.5rem;
+            left: 1.5rem;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+            z-index: 10;
+            background: rgba(5,5,5,0.6);
+            padding: 0.6rem 1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        .back-btn:hover { 
+            color: #FE2C55; 
+            border-color: #FE2C55;
+        }
+
+        /* Tipografia */
+        .launch-tag {
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+        }
+
+        .launch-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 8vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        .accent-pink { color: #FE2C55; }
+
+        .launch-date {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            color: #25F4EE;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Contador Regressivo */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+            width: 100%;
+        }
+        
+        .count-box {
+            background: rgba(11, 11, 13, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 1rem 0.5rem;
+            flex: 1; /* Faz os caixas se ajustarem igualmente */
+            max-width: 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .count-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        
+        .count-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .launch-text {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+            margin: 0 auto 2.5rem auto;
+            max-width: 400px;
+        }
+
+        /* Botão */
+        .btn-launch {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            background-color: #FE2C55;
+            color: #FFFFFF;
+            padding: 1.2rem 1rem;
+            border-radius: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            box-shadow: 0 10px 30px rgba(254, 44, 85, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-launch:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(254, 44, 85, 0.6);
+            background: #ff3b62;
+        }
+
+        /* Glows de fundo */
+        .glow-pink {
+            position: fixed;
+            top: 10%; left: -10%; 
+            opacity: 0.15; 
+            width: 600px; height: 600px;
+            background: #FE2C55;
+            filter: blur(150px);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .glow-cyan {
+            position: fixed;
+            bottom: 0%; right: -10%; 
+            opacity: 0.08; 
+            width: 500px; height: 500px;
+            background: #25F4EE;
+            filter: blur(150px);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Ajustes Desktop */
+        @media (min-width: 769px) {
+            .countdown { gap: 1rem; }
+            .count-box { padding: 1.2rem 1.5rem; max-width: 100px; }
+            .count-num { font-size: 2.5rem; }
+            .count-label { font-size: 0.7rem; }
+            .btn-launch { 
+                width: auto; 
+                padding: 1.2rem 2.5rem; 
+                margin: 0 auto; 
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Seta de Voltar -->
+    <a href="index.html" class="back-btn">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Voltar
+    </a>
+
+    <!-- Brilhos de fundo -->
+    <div class="glow-pink"></div>
+    <div class="glow-cyan"></div>
+
+    <div class="launch-wrapper">
+        <span class="launch-tag">— Lançamento Oficial</span>
+        
+        <h1 class="launch-title">
+            Lançamento <span class="accent-pink">em breve</span>.
+        </h1>
+        
+        <p class="launch-date">Data prevista: 28 de Agosto</p>
+        
+        <div class="countdown">
+            <div class="count-box">
+                <span class="count-num" id="days">00</span>
+                <span class="count-label">Dias</span>
+            </div>
+            <div class="count-box">
+                <span class="count-num" id="hours">00</span>
+                <span class="count-label">Horas</span>
+            </div>
+            <div class="count-box">
+                <span class="count-num" id="mins">00</span>
+                <span class="count-label">Min</span>
+            </div>
+            <div class="count-box">
+                <span class="count-num" id="secs">00</span>
+                <span class="count-label">Seg</span>
+            </div>
+        </div>
+
+        <p class="launch-text">
+            O conteúdo está sendo finalizado. Entre para a Lista de Espera exclusiva para ser o primeiro a saber e garantir seu acesso.
+        </p>
+        
+        <a href="https://chat.whatsapp.com/KpBgC6fGYWQ3SXY9zz7Lqj" target="_blank" rel="noopener noreferrer" class="btn-launch">
+            Entrar para a Lista de Espera
+        </a>
+    </div>
+
+    <script>
+        // Lógica do Contador Regressivo Automático
+        let now = new Date();
+        let year = now.getFullYear();
+        let countDownDate = new Date("Aug 28, " + year + " 00:00:00").getTime();
+        
+        // Se já passou do dia 28 de Agosto deste ano, muda para o ano que vem
+        if (now.getTime() > countDownDate) {
+            year = year + 1;
+            countDownDate = new Date("Aug 28, " + year + " 00:00:00").getTime();
+        }
+
+        const x = setInterval(function() {
+            const currentTime = new Date().getTime();
+            const distance = countDownDate - currentTime;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("mins").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("secs").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("mins").innerHTML = "00";
+                document.getElementById("secs").innerHTML = "00";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
